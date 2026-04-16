@@ -1,0 +1,66 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#0f1729] border-t border-[#1f2937] mt-0">
+  <div class="container py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4" aria-label="قيد العقار">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#10b981"/>
+            <path d="M8 22V14l8-6 8 6v8H8z" fill="white" fill-opacity="0.15"/>
+            <path d="M8 22V14l8-6 8 6v8" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="13" y="16" width="6" height="6" rx="1" fill="white"/>
+          </svg>
+          <span class="text-white font-bold text-lg">قيد <span class="text-brand-primary">العقار</span></span>
+        </a>
+        <p class="text-text-muted text-sm leading-relaxed max-w-xs">
+          نظام إدارة التدفقات المالية للمكاتب العقارية — مصمَّم للسوق السعودي والخليجي.
+        </p>
+      </div>
+
+      <!-- Product -->
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">المنتج</h3>
+        <ul class="space-y-3">
+          <li><a href="/#features" class="text-text-muted hover:text-white transition-colors text-sm">المميزات</a></li>
+          <li><a href="/pricing" class="text-text-muted hover:text-white transition-colors text-sm">الأسعار</a></li>
+          <li><a href="https://app.qaydalaqar.com/auth/login" class="text-text-muted hover:text-white transition-colors text-sm">تسجيل الدخول</a></li>
+          <li><a href="https://app.qaydalaqar.com/auth/signup" class="text-text-muted hover:text-white transition-colors text-sm">إنشاء حساب مجاني</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">الشركة</h3>
+        <ul class="space-y-3">
+          <li><a href="/about" class="text-text-muted hover:text-white transition-colors text-sm">من نحن</a></li>
+          <li><a href="/blog" class="text-text-muted hover:text-white transition-colors text-sm">المدونة</a></li>
+          <li><a href="/contact" class="text-text-muted hover:text-white transition-colors text-sm">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">قانوني</h3>
+        <ul class="space-y-3">
+          <li><a href="/privacy" class="text-text-muted hover:text-white transition-colors text-sm">سياسة الخصوصية</a></li>
+          <li><a href="/terms" class="text-text-muted hover:text-white transition-colors text-sm">شروط الاستخدام</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="mt-12 pt-8 border-t border-[#1f2937] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-text-muted text-sm">
+        © {year} قيد العقار. جميع الحقوق محفوظة.
+      </p>
+      <p class="text-text-muted text-xs">
+        مصنوع بـ ♥ للمكاتب العقارية السعودية
+      </p>
+    </div>
+  </div>
+</footer>

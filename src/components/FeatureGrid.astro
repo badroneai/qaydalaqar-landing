@@ -1,0 +1,64 @@
+---
+const features = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>`,
+    title: 'تسجيل الدخل والمصروفات',
+    desc: 'سجّل حركتك المالية اليومية بسرعة: مبلغ، تصنيف، طريقة دفع، ملاحظات. بدون تعقيد ولا تدريب مسبق.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    title: 'إدارة العمولات',
+    desc: 'تابع العمولات من وقت الاتفاق حتى التحصيل: معلّقة، جزئية، مدفوعة. لا تضيع عمولة مرة أخرى.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: 'توزيع المكتب والوكيل',
+    desc: 'حدّد نسب توزيع العمولة بين المكتب والوكيل تلقائياً. شفافية كاملة لكل الأطراف وسجل واضح.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
+    title: 'لوحة تحكم واضحة',
+    desc: 'أرقامك في لمحة واحدة: الدخل، المصروفات، العمولات المستحقة، صافي الربح. لا تحتاج محاسباً.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
+    title: 'تقويم هجري وميلادي',
+    desc: 'نظام التأريخ يدعم الهجري والميلادي جنباً إلى جنب — كما تعمل فعلاً في السوق السعودي.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>`,
+    title: 'بياناتك بأمان',
+    desc: 'بنية تحتية سحابية حديثة، تشفير كامل، وصلاحيات RLS على مستوى الصف — بياناتك محمية ومعزولة.',
+  },
+];
+---
+
+<section id="features" class="py-20 md:py-28">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        كل ما تحتاجه لإدارة مكتبك
+        <span class="gradient-text"> العقاري</span>
+      </h2>
+      <p class="text-text-muted text-lg max-w-2xl mx-auto">
+        ميزات مصمَّمة بمعرفة عميقة بطريقة عمل المكاتب العقارية في السعودية والخليج.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((feature) => (
+        <div class="card-hover p-6 rounded-2xl bg-[#0f1729] border border-[#1f2937]">
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-5">
+            <Fragment set:html={feature.icon} />
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-3">{feature.title}</h3>
+          <p class="text-text-muted text-sm leading-relaxed">{feature.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

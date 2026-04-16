@@ -1,0 +1,123 @@
+---
+---
+
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="container relative">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-medium mb-8 animate-fade-in-up">
+        <span class="w-2 h-2 bg-brand-primary rounded-full animate-pulse"></span>
+        نظام عربي متكامل لإدارة المكاتب العقارية
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in-up animate-delay-100">
+        نظامك المالي الواضح
+        <br />
+        <span class="gradient-text">لمكتبك العقاري.</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg md:text-xl text-text-muted leading-relaxed mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-200">
+        قيّد الدخل والمصروفات، تابع العمولات المعلّقة والمدفوعة، واتخذ قراراتك بثقة — كل ذلك من شاشة واحدة مصمّمة عربياً.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 animate-fade-in-up animate-delay-300">
+        <a
+          href="https://app.qaydalaqar.com/auth/signup"
+          class="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-brand-dark text-white font-semibold rounded-xl text-base transition-all hover:shadow-lg hover:shadow-brand-primary/25 hover:-translate-y-0.5"
+        >
+          ابدأ مجاناً — بدون بطاقة ائتمان
+        </a>
+        <a
+          href="/#features"
+          class="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-[#111c32] text-gray-300 hover:text-white font-semibold rounded-xl text-base border border-[#1f2937] hover:border-brand-primary/30 transition-all"
+        >
+          شاهد المميزات
+        </a>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted animate-fade-in-up animate-delay-400">
+        {[
+          'جاهز خلال دقيقة',
+          'دعم كامل للعربية',
+          'تقويم هجري وميلادي',
+          'مناسب للمكاتب الصغيرة',
+        ].map((item) => (
+          <span class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            {item}
+          </span>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- App Preview (abstract dashboard UI) -->
+    <div class="mt-16 md:mt-20 animate-fade-in-up animate-delay-500">
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Glow -->
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-primary/10 to-transparent rounded-2xl blur-2xl" aria-hidden="true"></div>
+        <!-- Dashboard mockup -->
+        <div class="relative rounded-2xl border border-[#1f2937] bg-[#0f1729] p-6 md:p-8 shadow-2xl">
+          <!-- Window bar -->
+          <div class="flex items-center gap-2 mb-6" aria-hidden="true">
+            <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+            <div class="flex-1 mx-4 h-6 bg-[#111c32] rounded-md flex items-center px-3">
+              <span class="text-xs text-text-muted">app.qaydalaqar.com</span>
+            </div>
+          </div>
+          <!-- Stats row -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            {[
+              { label: 'إجمالي الدخل', value: '٨٥,٢٠٠ ريال', color: 'text-brand-primary', icon: '↑' },
+              { label: 'إجمالي المصروفات', value: '١٢,٤٥٠ ريال', color: 'text-red-400', icon: '↓' },
+              { label: 'عمولات معلّقة', value: '٢٣,٠٠٠ ريال', color: 'text-amber-400', icon: '⏳' },
+              { label: 'صافي الربح', value: '٧٢,٧٥٠ ريال', color: 'text-brand-primary', icon: '✓' },
+            ].map((stat) => (
+              <div class="bg-[#111c32] rounded-xl p-4 border border-[#1f2937]">
+                <p class="text-text-muted text-xs mb-2">{stat.label}</p>
+                <p class={`font-bold text-lg ${stat.color}`}>{stat.value}</p>
+              </div>
+            ))}
+          </div>
+          <!-- Table preview -->
+          <div class="bg-[#111c32] rounded-xl border border-[#1f2937] overflow-hidden">
+            <div class="px-4 py-3 border-b border-[#1f2937] flex items-center justify-between">
+              <span class="text-sm font-medium text-white">آخر الحركات المالية</span>
+              <span class="text-xs text-brand-primary cursor-pointer">عرض الكل</span>
+            </div>
+            {[
+              { type: 'دخل', desc: 'عمولة عقد بيع - حي النرجس', amount: '+١٥,٠٠٠', color: 'text-brand-primary' },
+              { type: 'مصروف', desc: 'إيجار مكتب - شهر أبريل', amount: '-٣,٢٠٠', color: 'text-red-400' },
+              { type: 'عمولة', desc: 'عمولة إيجار - وكيل: محمد علي', amount: '+٤,٥٠٠', color: 'text-brand-primary' },
+            ].map((row, i) => (
+              <div class={`px-4 py-3 flex items-center justify-between ${i < 2 ? 'border-b border-[#1f2937]' : ''}`}>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs px-2 py-1 bg-brand-primary/10 text-brand-primary rounded-md font-medium">{row.type}</span>
+                  <span class="text-sm text-gray-300">{row.desc}</span>
+                </div>
+                <span class={`text-sm font-semibold ${row.color}`}>{row.amount}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="تواصل معنا | قيد العقار"
+  description="تواصل مع فريق قيد العقار — أسئلة، ملاحظات، أو اقتراحات."
+  canonical="/contact"
+>
+
+  <section class="py-20 md:py-28">
+    <div class="container max-w-2xl">
+
+      <div class="text-center mb-14">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">تواصل معنا</h1>
+        <p class="text-text-muted text-lg">
+          نسمع لكل سؤال أو اقتراح. ردّنا في اليوم نفسه في أوقات العمل.
+        </p>
+      </div>
+
+      <!-- Contact cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <a
+          href="mailto:info@qaydalaqar.com"
+          class="card-hover p-6 rounded-2xl bg-[#0f1729] border border-[#1f2937] text-center block"
+        >
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">البريد الإلكتروني</h3>
+          <p class="text-brand-primary text-sm">info@qaydalaqar.com</p>
+        </a>
+
+        <div class="p-6 rounded-2xl bg-[#0f1729] border border-[#1f2937] text-center">
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">وقت الرد</h3>
+          <p class="text-text-muted text-sm">خلال يوم عمل واحد</p>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div class="p-6 rounded-2xl bg-[#0f1729] border border-brand-primary/20 text-center">
+        <p class="text-text-muted text-sm leading-relaxed">
+          للاستفسار عن الخطة الاحترافية القادمة، أو لأي اقتراحات لتحسين النظام — نحن نسمع. كل ملاحظة تُشكّل تطوير المنتج مباشرةً.
+        </p>
+        <a
+          href="mailto:info@qaydalaqar.com"
+          class="inline-block mt-6 px-6 py-3 bg-brand-primary hover:bg-brand-dark text-white font-semibold rounded-xl transition-colors"
+        >
+          راسلنا الآن
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Faq from '../components/Faq.tsx';
+---
+
+<BaseLayout
+  title="أسعار قيد العقار | ابدأ مجاناً اليوم"
+  description="قيد العقار مجاني للبدء. استكشف الخطط المتاحة واختر ما يناسب مكتبك العقاري."
+  canonical="/pricing"
+>
+
+  <!-- Hero -->
+  <section class="py-20 md:py-28 text-center">
+    <div class="container max-w-2xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        أسعار واضحة
+        <span class="gradient-text"> بدون مفاجآت</span>
+      </h1>
+      <p class="text-text-muted text-lg">
+        ابدأ مجاناً اليوم. ادفع فقط عندما تحتاج المزيد.
+      </p>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section class="pb-20 md:pb-28">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+        <!-- Free -->
+        <div class="p-8 rounded-2xl bg-[#0f1729] border border-[#1f2937]">
+          <div class="mb-6">
+            <h2 class="text-white font-bold text-2xl mb-2">مجانية</h2>
+            <p class="text-text-muted">للبدء والتجربة</p>
+          </div>
+          <div class="mb-8">
+            <span class="text-5xl font-bold text-white">٠</span>
+            <span class="text-text-muted mr-2">ريال / شهرياً</span>
+          </div>
+          <a
+            href="https://app.qaydalaqar.com/auth/signup"
+            class="block w-full py-3.5 text-center bg-[#1f2937] hover:bg-[#2d3748] text-white font-semibold rounded-xl transition-colors mb-8"
+          >
+            ابدأ مجاناً الآن
+          </a>
+          <ul class="space-y-4">
+            {[
+              { text: 'مستخدم واحد', available: true },
+              { text: 'حتى ٥٠ حركة مالية شهرياً', available: true },
+              { text: 'إدارة العمولات', available: true },
+              { text: 'دعم التقويم الهجري والميلادي', available: true },
+              { text: 'لوحة التحكم الأساسية', available: true },
+              { text: 'تقارير أساسية', available: true },
+              { text: 'دعم عبر البريد الإلكتروني', available: true },
+              { text: 'تصدير PDF / Excel', available: false },
+              { text: 'تقارير متقدمة', available: false },
+              { text: 'مستخدمون متعددون', available: false },
+            ].map((item) => (
+              <li class={`flex items-center gap-3 text-sm ${item.available ? 'text-gray-300' : 'text-text-muted line-through opacity-50'}`}>
+                {item.available ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4b5563" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                )}
+                {item.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Pro -->
+        <div class="relative p-8 rounded-2xl bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 border border-brand-primary/30">
+          <div class="absolute -top-3 left-8">
+            <span class="px-4 py-1 bg-brand-primary text-white text-xs font-semibold rounded-full shadow">
+              قريباً
+            </span>
+          </div>
+          <div class="mb-6 mt-2">
+            <h2 class="text-white font-bold text-2xl mb-2">احترافية</h2>
+            <p class="text-text-muted">للمكاتب التي تريد كل شيء</p>
+          </div>
+          <div class="mb-8">
+            <span class="text-3xl font-bold text-white">يُعلَن قريباً</span>
+          </div>
+          <a
+            href="/contact"
+            class="block w-full py-3.5 text-center bg-brand-primary hover:bg-brand-dark text-white font-semibold rounded-xl transition-colors mb-8"
+          >
+            تواصل للحصول على أفضل عرض
+          </a>
+          <ul class="space-y-4">
+            {[
+              'مستخدمون غير محدودين',
+              'حركات مالية غير محدودة',
+              'إدارة العمولات المتقدمة',
+              'لوحة تحكم + تقارير متقدمة',
+              'تصدير PDF و Excel',
+              'إشعارات وتذكيرات',
+              'دعم ذو أولوية',
+              'تحديثات مستمرة',
+            ].map((item) => (
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <p class="text-center text-text-muted text-sm mt-10 max-w-lg mx-auto">
+        التواصل المبكر مع الفريق يضمن لك الاطلاع على الأسعار أولاً ومزايا إضافية للمشتركين الأوائل.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-28 bg-[#0f1729] border-y border-[#1f2937]">
+    <div class="container max-w-3xl">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">أسئلة حول الأسعار</h2>
+      <Faq client:load />
+    </div>
+  </section>
+
+  <CtaBanner />
+
+</BaseLayout>

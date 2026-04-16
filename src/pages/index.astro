@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import UseCases from '../components/UseCases.astro';
+import Pricing from '../components/Pricing.astro';
+import Faq from '../components/Faq.tsx';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'قيد العقار',
+  description: 'نظام إدارة التدفقات المالية للمكاتب العقارية — مصمَّم للسوق السعودي والخليجي.',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  inLanguage: 'ar',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'SAR',
+    availability: 'https://schema.org/InStock',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'قيد العقار',
+    url: 'https://qaydalaqar.com',
+  },
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'قيد العقار',
+  url: 'https://qaydalaqar.com',
+  logo: 'https://qaydalaqar.com/favicon.svg',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'info@qaydalaqar.com',
+    contactType: 'customer support',
+    availableLanguage: 'Arabic',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'هل قيد العقار مناسب لمكتبي الصغير؟',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'نعم، صُمِّم أساساً للمكاتب الصغيرة والمتوسطة. تبدأ مباشرةً بدون تدريب.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'كم يكلّفني استخدام النظام؟',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'الخطة الأساسية مجانية بالكامل حالياً. الخطة الاحترافية قيد التسعير.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'هل بياناتي في أمان؟',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'نعم. البنية التحتية تعتمد Supabase مع تشفير كامل وصلاحيات RLS على مستوى الصف.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'هل يدعم التقويم الهجري؟',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'نعم، يدعم الهجري والميلادي جنباً إلى جنب.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="قيد العقار | نظام إدارة التدفقات المالية للمكاتب العقارية"
+  description="قيد العقار نظام عربي احترافي لإدارة دخل ومصروفات وعمولات مكتبك العقاري. بسيط، آمن، جاهز خلال دقيقة. ابدأ مجاناً."
+  canonical="/"
+  jsonLd={[softwareSchema, orgSchema, faqSchema]}
+>
+
+  <Hero />
+
+  <!-- Social proof bar -->
+  <div class="border-y border-[#1f2937] bg-[#0f1729] py-6">
+    <div class="container">
+      <p class="text-center text-text-muted text-sm">
+        مصمَّم بمعرفة عميقة بسوق العقار السعودي — لأن أصحاب المكاتب يستحقون نظاماً يفهمهم.
+      </p>
+    </div>
+  </div>
+
+  <FeatureGrid />
+
+  <HowItWorks />
+
+  <UseCases />
+
+  <Pricing />
+
+  <!-- FAQ Section -->
+  <section class="py-20 md:py-28">
+    <div class="container">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">أسئلة شائعة</h2>
+        <p class="text-text-muted text-lg max-w-xl mx-auto">
+          إجابات مباشرة لأكثر ما يسأل عنه أصحاب المكاتب العقارية.
+        </p>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <Faq client:load />
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+
+</BaseLayout>

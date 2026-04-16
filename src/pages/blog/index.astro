@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+---
+
+<BaseLayout
+  title="مدونة قيد العقار | نصائح وأدلة لأصحاب المكاتب العقارية"
+  description="مقالات عملية حول إدارة المكاتب العقارية، تتبع العمولات، والمحاسبة — مكتوبة بلغة بسيطة لأصحاب المكاتب."
+  canonical="/blog"
+>
+
+  <section class="py-20 md:py-28">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          المدونة
+        </h1>
+        <p class="text-text-muted text-lg max-w-xl mx-auto">
+          نصائح عملية لأصحاب المكاتب العقارية — مكتوبة بلغة بسيطة، لا تسويق فارغ.
+        </p>
+      </div>
+
+      <!-- Posts grid -->
+      {posts.length === 0 ? (
+        <p class="text-center text-text-muted">لا توجد مقالات بعد. تابعنا قريباً.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => {
+            const date = new Date(post.data.pubDate).toLocaleDateString('ar-SA', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+            return (
+              <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] overflow-hidden flex flex-col">
+                <div class="p-6 flex flex-col flex-1">
+                  <!-- Tags -->
+                  {post.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      {post.data.tags.slice(0, 2).map((tag) => (
+                        <span class="px-2 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full border border-brand-primary/20">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <h2 class="text-white font-bold text-lg mb-3 leading-snug flex-1">
+                    <a href={`/blog/${post.slug}`} class="hover:text-brand-primary transition-colors">
+                      {post.data.title}
+                    </a>
+                  </h2>
+
+                  <p class="text-text-muted text-sm leading-relaxed mb-6">
+                    {post.data.description}
+                  </p>
+
+                  <div class="flex items-center justify-between mt-auto pt-4 border-t border-[#1f2937]">
+                    <time datetime={post.data.pubDate} class="text-text-muted text-xs">{date}</time>
+                    <a
+                      href={`/blog/${post.slug}`}
+                      class="text-brand-primary text-sm font-medium hover:underline"
+                      aria-label={`اقرأ المقال: ${post.data.title}`}
+                    >
+                      اقرأ المزيد ←
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+
+    </div>
+  </section>
+
+</BaseLayout>
