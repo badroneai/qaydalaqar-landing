@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://qaydalaqar.com/sitemap-index.xml
+Sitemap: https://qaydalaqar.com/sitemap.xml
