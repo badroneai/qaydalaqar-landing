@@ -27,16 +27,16 @@
 
       <!-- Subtitle -->
       <p class="text-lg md:text-xl text-text-muted leading-relaxed mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-200">
-        قيّد الدخل والمصروفات، تابع العمولات المعلّقة والمدفوعة، واتخذ قراراتك بثقة — كل ذلك من شاشة واحدة مصمّمة عربياً.
+        قيّد الدخل والمصروفات، تابع العمولات المعلّقة والمدفوعة، واتخذ قراراتك بثقة من شاشة واحدة مصمّمة عربياً.
       </p>
 
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 animate-fade-in-up animate-delay-300">
         <a
           href="https://app.qaydalaqar.com/auth/signup"
-          class="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-brand-dark text-white font-semibold rounded-xl text-base transition-all hover:shadow-lg hover:shadow-brand-primary/25 hover:-translate-y-0.5"
+          class="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-semibold rounded-xl text-base transition-all hover:shadow-lg hover:shadow-brand-primary/25 hover:-translate-y-0.5"
         >
-          ابدأ مجاناً — بدون بطاقة ائتمان
+          ابدأ مجاناً بدون بطاقة ائتمان
         </a>
         <a
           href="/#features"
@@ -55,7 +55,7 @@
           'مناسب للمكاتب الصغيرة',
         ].map((item) => (
           <span class="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
             {item}
@@ -84,10 +84,10 @@
           <!-- Stats row -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {[
-              { label: 'إجمالي الدخل', value: '٨٥,٢٠٠ ريال', color: 'text-brand-primary', icon: '↑' },
+              { label: 'إجمالي الدخل', value: '٨٥,٢٠٠ ريال', color: 'text-emerald-400', icon: '↑' },
               { label: 'إجمالي المصروفات', value: '١٢,٤٥٠ ريال', color: 'text-red-400', icon: '↓' },
               { label: 'عمولات معلّقة', value: '٢٣,٠٠٠ ريال', color: 'text-amber-400', icon: '⏳' },
-              { label: 'صافي الربح', value: '٧٢,٧٥٠ ريال', color: 'text-brand-primary', icon: '✓' },
+              { label: 'صافي الربح', value: '٧٢,٧٥٠ ريال', color: 'text-emerald-400', icon: '✓' },
             ].map((stat) => (
               <div class="bg-[#111c32] rounded-xl p-4 border border-[#1f2937]">
                 <p class="text-text-muted text-xs mb-2">{stat.label}</p>
@@ -102,9 +102,9 @@
               <span class="text-xs text-brand-primary cursor-pointer">عرض الكل</span>
             </div>
             {[
-              { type: 'دخل', desc: 'عمولة عقد بيع - حي النرجس', amount: '+١٥,٠٠٠', color: 'text-brand-primary' },
+              { type: 'دخل', desc: 'عمولة عقد بيع - حي النرجس', amount: '+١٥,٠٠٠', color: 'text-emerald-400' },
               { type: 'مصروف', desc: 'إيجار مكتب - شهر أبريل', amount: '-٣,٢٠٠', color: 'text-red-400' },
-              { type: 'عمولة', desc: 'عمولة إيجار - وكيل: محمد علي', amount: '+٤,٥٠٠', color: 'text-brand-primary' },
+              { type: 'عمولة', desc: 'عمولة إيجار - وكيل: محمد علي', amount: '+٤,٥٠٠', color: 'text-emerald-400' },
             ].map((row, i) => (
               <div class={`px-4 py-3 flex items-center justify-between ${i < 2 ? 'border-b border-[#1f2937]' : ''}`}>
                 <div class="flex items-center gap-3">

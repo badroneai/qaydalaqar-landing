@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     q: 'هل أحتاج خبرة محاسبية لاستخدامه؟',
-    a: 'لا. النظام مُصمَّم لصاحب المكتب العادي، الحقول بسيطة والواجهة عربية بالكامل — كل ما تحتاجه هو إدخال المبلغ واختيار النوع.',
+    a: 'لا. النظام مُصمَّم لصاحب المكتب العادي، الحقول بسيطة والواجهة عربية بالكامل. كل ما تحتاجه هو إدخال المبلغ واختيار النوع.',
   },
   {
     q: 'هل يمكنني تصدير بياناتي لاحقاً؟',
-    a: 'نعم، تصدير Excel وPDF متاح في الخطة الاحترافية القادمة. وبياناتك دائماً ملكك — يمكن تصديرها في أي وقت.',
+    a: 'نعم، تصدير Excel وPDF متاح في الخطة الاحترافية القادمة. وبياناتك دائماً ملكك ويمكن تصديرها في أي وقت.',
   },
   {
     q: 'هل يدعم أكثر من وكيل في المكتب؟',
@@ -52,8 +52,8 @@ export default function Faq() {
           >
             <span className="font-semibold text-white text-base">{faq.q}</span>
             <span
-              className={`shrink-0 w-6 h-6 rounded-full border border-[#1f2937] flex items-center justify-center text-[#10b981] transition-transform duration-200 ${
-                open === i ? 'rotate-45 bg-[#10b981]/10 border-[#10b981]/30' : ''
+              className={`shrink-0 w-6 h-6 rounded-full border border-[#1f2937] flex items-center justify-center text-[#C5CCD9] transition-transform duration-200 ${
+                open === i ? 'rotate-45 bg-[#C5CCD9]/10 border-[#C5CCD9]/30' : ''
               }`}
               aria-hidden="true"
             >

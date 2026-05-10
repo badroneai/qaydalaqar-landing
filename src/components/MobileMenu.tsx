@@ -54,7 +54,7 @@ export default function MobileMenu({ navLinks }: Props) {
             </a>
             <a
               href="https://app.qaydalaqar.com/auth/signup"
-              className="block px-4 py-3 bg-[#10b981] hover:bg-[#059669] text-white rounded-lg transition-colors text-sm font-semibold text-center mt-1"
+              className="block px-4 py-3 bg-[#C5CCD9] hover:bg-[#9EA9BF] text-[#0F172D] rounded-lg transition-colors text-sm font-semibold text-center mt-1"
               onClick={() => setOpen(false)}
             >
               ابدأ مجاناً

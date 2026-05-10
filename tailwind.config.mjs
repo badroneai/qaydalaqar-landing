@@ -5,16 +5,16 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#10b981',
-          dark: '#059669',
-          accent: '#0f766e',
+          primary: '#C5CCD9',
+          dark: '#9EA9BF',
+          accent: '#C5A55A',
         },
         bg: {
-          DEFAULT: '#0b1220',
-          soft: '#0f1729',
-          muted: '#111c32',
+          DEFAULT: '#020617',
+          soft: '#0f172a',
+          muted: '#1e293b',
         },
-        border: '#1f2937',
+        border: '#334155',
         'text-muted': '#94a3b8',
       },
       fontFamily: {
@@ -24,7 +24,7 @@ export default {
         DEFAULT: {
           css: {
             color: '#e5e7eb',
-            a: { color: '#10b981' },
+            a: { color: '#C5CCD9' },
             h1: { color: '#e5e7eb' },
             h2: { color: '#e5e7eb' },
             h3: { color: '#e5e7eb' },
