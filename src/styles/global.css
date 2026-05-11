@@ -4,15 +4,15 @@
 @tailwind utilities;
 
 :root {
-  --brand-primary: #10b981;
-  --brand-primary-dark: #059669;
-  --brand-accent: #0f766e;
-  --bg: #0b1220;
-  --bg-soft: #0f1729;
-  --bg-muted: #111c32;
+  --brand-primary: #C5CCD9;
+  --brand-primary-dark: #9EA9BF;
+  --brand-accent: #C5A55A;
+  --bg: #020617;
+  --bg-soft: #0f172a;
+  --bg-muted: #1e293b;
   --text: #e5e7eb;
   --text-muted: #94a3b8;
-  --border: #1f2937;
+  --border: #334155;
 }
 
 * {
@@ -56,7 +56,7 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #10b981, #0f766e);
+  background: linear-gradient(135deg, #C5CCD9, #C5A55A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -69,7 +69,7 @@ body {
 .card-hover:hover {
   transform: translateY(-4px);
   border-color: var(--brand-primary);
-  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.35);
 }
 
 /* Section container */
