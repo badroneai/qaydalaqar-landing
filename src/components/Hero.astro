@@ -1,4 +1,5 @@
 ---
+import CurrencyAmount from './CurrencyAmount.astro';
 ---
 
 <section class="relative py-24 md:py-32 overflow-hidden">
@@ -84,14 +85,16 @@
           <!-- Stats row -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {[
-              { label: 'إجمالي الدخل', value: '٨٥,٢٠٠ ريال', color: 'text-emerald-400', icon: '↑' },
-              { label: 'إجمالي المصروفات', value: '١٢,٤٥٠ ريال', color: 'text-red-400', icon: '↓' },
-              { label: 'عمولات معلّقة', value: '٢٣,٠٠٠ ريال', color: 'text-amber-400', icon: '⏳' },
-              { label: 'صافي الربح', value: '٧٢,٧٥٠ ريال', color: 'text-emerald-400', icon: '✓' },
+              { label: 'إجمالي الدخل', value: '٨٥,٢٠٠', color: 'text-emerald-400', icon: '↑' },
+              { label: 'إجمالي المصروفات', value: '١٢,٤٥٠', color: 'text-red-400', icon: '↓' },
+              { label: 'عمولات معلّقة', value: '٢٣,٠٠٠', color: 'text-amber-400', icon: '⏳' },
+              { label: 'صافي الربح', value: '٧٢,٧٥٠', color: 'text-emerald-400', icon: '✓' },
             ].map((stat) => (
               <div class="bg-[#111c32] rounded-xl p-4 border border-[#1f2937]">
                 <p class="text-text-muted text-xs mb-2">{stat.label}</p>
-                <p class={`font-bold text-lg ${stat.color}`}>{stat.value}</p>
+                <p class={`font-bold text-lg ${stat.color}`}>
+                  <CurrencyAmount value={stat.value} />
+                </p>
               </div>
             ))}
           </div>
@@ -111,7 +114,9 @@
                   <span class="text-xs px-2 py-1 bg-brand-primary/10 text-brand-primary rounded-md font-medium">{row.type}</span>
                   <span class="text-sm text-gray-300">{row.desc}</span>
                 </div>
-                <span class={`text-sm font-semibold ${row.color}`}>{row.amount}</span>
+                <span class={`text-sm font-semibold ${row.color}`}>
+                  <CurrencyAmount value={row.amount} />
+                </span>
               </div>
             ))}
           </div>

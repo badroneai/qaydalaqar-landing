@@ -1,0 +1,15 @@
+---
+import SARSymbol from './SARSymbol.astro';
+
+interface Props {
+  value: string;
+  class?: string;
+}
+
+const { value, class: className = "" } = Astro.props;
+---
+
+<span class:list={["inline-flex items-baseline gap-1 whitespace-nowrap", className]}>
+  <span dir="ltr">{value}</span>
+  <SARSymbol class="shrink-0" />
+</span>
