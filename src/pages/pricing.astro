@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import CurrencyAmount from '../components/CurrencyAmount.astro';
 import Faq from '../components/Faq.tsx';
 ---
 
@@ -35,8 +36,8 @@ import Faq from '../components/Faq.tsx';
             <p class="text-text-muted">للبدء والتجربة</p>
           </div>
           <div class="mb-8">
-            <span class="text-5xl font-bold text-white">٠</span>
-            <span class="text-text-muted mr-2">ريال / شهرياً</span>
+            <CurrencyAmount value="٠" class="text-5xl font-bold text-white" />
+            <span class="text-text-muted mr-2">/ شهرياً</span>
           </div>
           <a
             href="https://app.qaydalaqar.com/auth/signup"
