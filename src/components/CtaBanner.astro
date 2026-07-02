@@ -1,5 +1,5 @@
 ---
-const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURIComponent('طلب انضمام إلى قيد العقار')}`;
+const signupUrl = 'https://app.qaydalaqar.com/auth/signup';
 ---
 
 <section class="py-20 md:py-28">
@@ -16,13 +16,13 @@ const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURICompo
           <span class="gradient-text">أوائل المنضمين.</span>
         </h2>
         <p class="text-text-muted text-lg mb-10 max-w-xl mx-auto">
-          راسلنا وسنعود إليك لترتيب انضمام مكتبك إلى التجربة الموجّهة.
+          سجّل الآن وابدأ خلال دقائق — قيد العقار في مرحلة إطلاق تجريبي.
         </p>
         <a
-          href={requestAccessMailto}
+          href={signupUrl}
           class="inline-block px-10 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-bold rounded-xl text-base transition-all hover:shadow-lg hover:shadow-brand-primary/20 hover:-translate-y-0.5"
         >
-          اطلب انضمامك
+          أنشئ حساب مكتبك
         </a>
 
         <!-- Trust -->

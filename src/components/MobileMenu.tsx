@@ -53,11 +53,11 @@ export default function MobileMenu({ navLinks }: Props) {
               تسجيل الدخول
             </a>
             <a
-              href={`mailto:info@qaydalaqar.com?subject=${encodeURIComponent('طلب انضمام إلى قيد العقار')}`}
+              href="https://app.qaydalaqar.com/auth/signup"
               className="block px-4 py-3 bg-[#C5CCD9] hover:bg-[#9EA9BF] text-[#0F172D] rounded-lg transition-colors text-sm font-semibold text-center mt-1"
               onClick={() => setOpen(false)}
             >
-              اطلب انضمامك
+              أنشئ حساب مكتبك
             </a>
           </div>
         </div>
