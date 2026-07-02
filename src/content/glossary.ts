@@ -387,6 +387,41 @@ export const glossaryTerms: GlossaryTerm[] = [
     officeUse: 'يربط التقرير بالفعل بدلاً من أن يبقى مجرد أرقام.',
     relatedSlug: 'real-estate-reports-for-decisions',
   },
+  {
+    term: 'ملف إكسل تشغيلي',
+    category: 'تشغيل المكتب',
+    summary: 'جدول يستخدمه المكتب لإدارة جزء من العمل اليومي مثل العقارات أو التحصيل أو المصروفات.',
+    officeUse: 'يصلح كبداية، لكنه يحتاج ضبطاً عندما يصبح هو المصدر الوحيد للعقود والمتابعات والتقارير.',
+    relatedSlug: 'excel-real-estate-office-management-guide',
+  },
+  {
+    term: 'سجل الإيجارات',
+    category: 'التقارير',
+    summary: 'جدول يجمع الوحدات والمستأجرين والعقود وقيم الإيجار وحالة الإشغال في صورة واحدة.',
+    officeUse: 'يساعد على فهم الدخل المتوقع وحالة العقود، ويقابل مفهوم rent roll في الأدبيات العقارية.',
+    relatedSlug: 'excel-real-estate-office-management-guide',
+  },
+  {
+    term: 'نسخة الملف المعتمدة',
+    category: 'تشغيل المكتب',
+    summary: 'النسخة التي يعتمدها المكتب كمصدر صحيح عند وجود عدة ملفات أو نسخ متداولة.',
+    officeUse: 'تمنع تضارب الأرقام قبل تنظيف البيانات أو نقلها إلى نظام.',
+    relatedSlug: 'excel-real-estate-office-management-guide',
+  },
+  {
+    term: 'ترحيل البيانات',
+    category: 'تشغيل المكتب',
+    summary: 'نقل بيانات العقارات والعقود والتحصيل من ملفات قديمة إلى نظام أو بنية أكثر تنظيماً.',
+    officeUse: 'يجب أن يبدأ بالعقود النشطة والمتأخرات والحقول المهمة بدلاً من الأرشيف الكامل.',
+    relatedSlug: 'excel-real-estate-office-management-guide',
+  },
+  {
+    term: 'تنظيف البيانات',
+    category: 'تشغيل المكتب',
+    summary: 'مراجعة الأعمدة والقيم والتواريخ والحالات قبل الاعتماد أو النقل.',
+    officeUse: 'يمنع نقل أخطاء الإكسل نفسها إلى التقرير أو النظام الجديد.',
+    relatedSlug: 'excel-real-estate-office-management-guide',
+  },
 ];
 
 export function glossaryJsonLd(articles: PublicResourceArticle[]) {
