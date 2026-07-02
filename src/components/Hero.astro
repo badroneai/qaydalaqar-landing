@@ -1,5 +1,5 @@
 ---
-import CurrencyAmount from './CurrencyAmount.astro';
+const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURIComponent('طلب انضمام إلى قيد العقار')}`;
 ---
 
 <section class="relative py-24 md:py-32 overflow-hidden">
@@ -16,28 +16,28 @@ import CurrencyAmount from './CurrencyAmount.astro';
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-medium mb-8 animate-fade-in-up">
         <span class="w-2 h-2 bg-brand-primary rounded-full animate-pulse"></span>
-        نظام عربي متكامل لإدارة المكاتب العقارية
+        الوصول حالياً عبر تجربة موجّهة بعدد محدود من المكاتب
       </div>
 
       <!-- H1 -->
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in-up animate-delay-100">
-        نظامك المالي الواضح
+        نظام التشغيل اليومي
         <br />
         <span class="gradient-text">لمكتبك العقاري.</span>
       </h1>
 
       <!-- Subtitle -->
       <p class="text-lg md:text-xl text-text-muted leading-relaxed mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-200">
-        قيّد الدخل والمصروفات، تابع العمولات المعلّقة والمدفوعة، واتخذ قراراتك بثقة من شاشة واحدة مصمّمة عربياً.
+        قيد العقار يجمع العقارات والوحدات وعقود الإيجار والتحصيل ومصروفات المكتب في مساحة عمل عربية واحدة — ويبدأ يومك برادارٍ يعرض ما يحتاج انتباهك: دفعات متأخرة، وعقود تنتهي قريباً، ومتابعات مفتوحة.
       </p>
 
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 animate-fade-in-up animate-delay-300">
         <a
-          href="https://app.qaydalaqar.com/auth/signup"
+          href={requestAccessMailto}
           class="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-semibold rounded-xl text-base transition-all hover:shadow-lg hover:shadow-brand-primary/25 hover:-translate-y-0.5"
         >
-          ابدأ مجاناً بدون بطاقة ائتمان
+          اطلب انضمامك
         </a>
         <a
           href="/#features"
@@ -50,10 +50,10 @@ import CurrencyAmount from './CurrencyAmount.astro';
       <!-- Trust bar -->
       <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted animate-fade-in-up animate-delay-400">
         {[
-          'جاهز خلال دقيقة',
-          'دعم كامل للعربية',
-          'تقويم هجري وميلادي',
-          'مناسب للمكاتب الصغيرة',
+          'عربي أولاً وبالتقويم الهجري',
+          'مصمم لمكاتب العقار في السعودية',
+          'رادار يومي للدفعات والعقود',
+          'استيراد عقد إيجار (PDF)',
         ].map((item) => (
           <span class="flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -66,12 +66,12 @@ import CurrencyAmount from './CurrencyAmount.astro';
 
     </div>
 
-    <!-- App Preview (abstract dashboard UI) -->
+    <!-- App Preview (abstract radar UI) -->
     <div class="mt-16 md:mt-20 animate-fade-in-up animate-delay-500">
       <div class="relative max-w-4xl mx-auto">
         <!-- Glow -->
         <div class="absolute inset-0 bg-gradient-to-b from-brand-primary/10 to-transparent rounded-2xl blur-2xl" aria-hidden="true"></div>
-        <!-- Dashboard mockup -->
+        <!-- Radar mockup -->
         <div class="relative rounded-2xl border border-[#1f2937] bg-[#0f1729] p-6 md:p-8 shadow-2xl">
           <!-- Window bar -->
           <div class="flex items-center gap-2 mb-6" aria-hidden="true">
@@ -82,41 +82,44 @@ import CurrencyAmount from './CurrencyAmount.astro';
               <span class="text-xs text-text-muted">app.qaydalaqar.com</span>
             </div>
           </div>
+          <!-- Radar header -->
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="text-xs text-brand-accent font-semibold mb-1">أولوية الانتباه</p>
+              <p class="text-white font-bold">رادار اليوم</p>
+            </div>
+            <span class="text-xs px-3 py-1 bg-emerald-400/10 text-emerald-400 rounded-full font-medium">مباشر</span>
+          </div>
           <!-- Stats row -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div class="grid grid-cols-3 gap-4 mb-6">
             {[
-              { label: 'إجمالي الدخل', value: '٨٥,٢٠٠', color: 'text-emerald-400', icon: '↑' },
-              { label: 'إجمالي المصروفات', value: '١٢,٤٥٠', color: 'text-red-400', icon: '↓' },
-              { label: 'عمولات معلّقة', value: '٢٣,٠٠٠', color: 'text-amber-400', icon: '⏳' },
-              { label: 'صافي الربح', value: '٧٢,٧٥٠', color: 'text-emerald-400', icon: '✓' },
+              { label: 'دفعات متأخرة', value: '٧', color: 'text-amber-400' },
+              { label: 'عقود تنتهي قريباً', value: '٤', color: 'text-brand-primary' },
+              { label: 'متابعات مفتوحة', value: '١٢', color: 'text-emerald-400' },
             ].map((stat) => (
               <div class="bg-[#111c32] rounded-xl p-4 border border-[#1f2937]">
                 <p class="text-text-muted text-xs mb-2">{stat.label}</p>
-                <p class={`font-bold text-lg ${stat.color}`}>
-                  <CurrencyAmount value={stat.value} />
-                </p>
+                <p class={`font-bold text-2xl ${stat.color}`}>{stat.value}</p>
               </div>
             ))}
           </div>
-          <!-- Table preview -->
+          <!-- Follow-ups preview -->
           <div class="bg-[#111c32] rounded-xl border border-[#1f2937] overflow-hidden">
             <div class="px-4 py-3 border-b border-[#1f2937] flex items-center justify-between">
-              <span class="text-sm font-medium text-white">آخر الحركات المالية</span>
-              <span class="text-xs text-brand-primary cursor-pointer">عرض الكل</span>
+              <span class="text-sm font-medium text-white">متابعات اليوم</span>
+              <span class="text-xs text-brand-primary">عرض الكل</span>
             </div>
             {[
-              { type: 'دخل', desc: 'عمولة عقد بيع - حي النرجس', amount: '+١٥,٠٠٠', color: 'text-emerald-400' },
-              { type: 'مصروف', desc: 'إيجار مكتب - شهر أبريل', amount: '-٣,٢٠٠', color: 'text-red-400' },
-              { type: 'عمولة', desc: 'عمولة إيجار - وكيل: محمد علي', amount: '+٤,٥٠٠', color: 'text-emerald-400' },
+              { type: 'دفعة متأخرة', desc: 'استحقاق إيجار — وحدة ٣، حي النرجس', state: 'قيد المتابعة', color: 'text-amber-400' },
+              { type: 'عقد ينتهي', desc: 'عقد إيجار سنوي — يتبقى ٤٥ يوماً', state: 'بانتظار قرار', color: 'text-brand-primary' },
+              { type: 'تحصيل', desc: 'دفعة مسجّلة اليوم — تحدّث الجدول تلقائياً', state: 'مكتمل', color: 'text-emerald-400' },
             ].map((row, i) => (
-              <div class={`px-4 py-3 flex items-center justify-between ${i < 2 ? 'border-b border-[#1f2937]' : ''}`}>
-                <div class="flex items-center gap-3">
-                  <span class="text-xs px-2 py-1 bg-brand-primary/10 text-brand-primary rounded-md font-medium">{row.type}</span>
-                  <span class="text-sm text-gray-300">{row.desc}</span>
+              <div class={`px-4 py-3 flex items-center justify-between gap-3 ${i < 2 ? 'border-b border-[#1f2937]' : ''}`}>
+                <div class="flex items-center gap-3 min-w-0">
+                  <span class="text-xs px-2 py-1 bg-brand-primary/10 text-brand-primary rounded-md font-medium shrink-0">{row.type}</span>
+                  <span class="text-sm text-gray-300 truncate">{row.desc}</span>
                 </div>
-                <span class={`text-sm font-semibold ${row.color}`}>
-                  <CurrencyAmount value={row.amount} />
-                </span>
+                <span class={`text-xs font-semibold shrink-0 ${row.color}`}>{row.state}</span>
               </div>
             ))}
           </div>

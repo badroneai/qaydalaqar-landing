@@ -4,138 +4,119 @@ import CtaBanner from '../components/CtaBanner.astro';
 
 const features = [
   {
-    id: 'income-expenses',
-    title: 'تسجيل الدخل والمصروفات',
-    subtitle: 'كل مبلغ في مكانه الصحيح',
-    desc: 'سجّل كل حركة مالية في ثوانٍ. اختر النوع (دخل أو مصروف)، أدخل المبلغ، واختر التصنيف، والنظام يرتّب الباقي.',
+    id: 'radar',
+    title: 'الرادار والمتابعات',
+    subtitle: 'يومك يبدأ بقائمة انتباه واحدة',
+    desc: 'الرادار يعرض ما يحتاج انتباهك اليوم مرتباً حسب الأولوية، وكل إشارة تتحول بضغطة إلى متابعة لها مسؤول وحالة وسجل نشاط.',
     details: [
-      'تصنيفات جاهزة: إيجار، عمولة، مصروف تشغيلي، صيانة، وغيرها',
-      'دعم طرق دفع متعددة: نقداً، تحويل بنكي، مدى، إلخ',
-      'إضافة ملاحظات وتفاصيل لكل حركة',
-      'عرض كل الحركات في سجل تسلسلي قابل للتصفية',
+      'دفعات متأخرة وعقود تقترب من الانتهاء وفجوات تشغيلية في شاشة واحدة',
+      'إنشاء متابعة من الإشارة مباشرة بدون إعادة إدخال',
+      'سجل نشاط كامل لكل متابعة: من استلمها، ماذا حدث، وكيف أُغلقت',
+      'أرشيف للمتابعات المغلقة للرجوع إليه في أي وقت',
     ],
   },
   {
-    id: 'commissions',
-    title: 'إدارة العمولات',
-    subtitle: 'لا عمولة تضيع بعد اليوم',
-    desc: 'من لحظة الاتفاق على العمولة حتى لحظة التحصيل، كل خطوة مسجّلة وواضحة.',
+    id: 'leases',
+    title: 'عقود الإيجار والاستحقاقات',
+    subtitle: 'كل عقد بجدول استحقاق واضح',
+    desc: 'أنشئ العقد وسيتولد جدول استحقاقاته، أو ارفع ملف عقد من منصة إيجار (PDF) وراجع بياناته قبل الإنشاء.',
     details: [
-      'تتبع حالة العمولة: معلّقة، مدفوعة جزئياً، مكتملة',
-      'ربط كل عمولة بعقد أو صفقة محددة',
-      'تاريخ الاستحقاق وتاريخ التحصيل الفعلي',
-      'تقرير شهري لكل العمولات المستحقة والمنتهية',
+      'استيراد ملف عقد إيجار (PDF) بمراجعة منك قبل إنشاء أي سجل',
+      'جدول استحقاقات يتولد تلقائياً ويبقى مربوطاً بملف المصدر',
+      'مستند عقد جاهز للطباعة',
+      'تفاصيل العقد كما هي مسجلة في منصة إيجار محفوظة على العقد للمرجعية',
     ],
   },
   {
-    id: 'agents',
-    title: 'توزيع الوكلاء',
-    subtitle: 'شفافية كاملة مع كل وكيل',
-    desc: 'حدّد نسبة كل وكيل من العمولة وسجّل المدفوعات، والنظام يحسب كل شيء تلقائياً.',
+    id: 'collection',
+    title: 'التحصيل',
+    subtitle: 'نسبة تحصيل تراها ولا تخمّنها',
+    desc: 'الدفعات مربوطة بالاستحقاقات، وتستطيع تسجيل السداد من داخل المتابعة نفسها فيتحدث الجدول والتقارير تلقائياً.',
     details: [
-      'إضافة وكلاء متعددين بأسمائهم وبياناتهم',
-      'تحديد نسبة توزيع العمولة لكل وكيل',
-      'سجل مدفوعات الوكيل منفصل وواضح',
-      'حساب مستحقات كل وكيل تلقائياً',
+      'تسجيل دفعات مربوطة بجدول الاستحقاقات',
+      'تسجيل السداد من داخل المتابعة المرتبطة بالدفعة المتأخرة',
+      'حالة كل استحقاق واضحة: مسدد، جزئي، متأخر',
+      'تقرير نسبة التحصيل وأعمار الديون',
     ],
   },
   {
-    id: 'dashboard',
-    title: 'لوحة التحكم',
-    subtitle: 'وضعك المالي في لمحة واحدة',
-    desc: 'لوحة تحكم تعرض أرقامك الرئيسية في الوقت الفعلي دون الحاجة لفتح سجلات.',
+    id: 'office-ledger',
+    title: 'دفتر المكتب',
+    subtitle: 'حسابات المكتب منفصلة عن حسابات العقارات',
+    desc: 'مصروفات المكتب والتزاماته الدورية (إيجار المقر، الاشتراكات، الرواتب وغيرها) في دفتر مستقل بتصنيفاته وتقاريره.',
     details: [
-      'ملخص الدخل والمصروفات للشهر الحالي',
-      'مؤشر صافي الربح مع المقارنة بالشهر السابق',
-      'أبرز العمولات المعلّقة والمستحقة',
-      'رسم بياني للتدفق المالي الشهري',
+      'معاملات المكتب بتصنيفات قابلة للتخصيص',
+      'التزامات دورية بمواعيد استحقاق وتسوية',
+      'فصل كامل بين أرقام المكتب وأرقام العقارات',
+      'تقارير خاصة بدفتر المكتب',
     ],
   },
   {
-    id: 'calendar',
-    title: 'دعم الهجري والميلادي',
-    subtitle: 'كما تعمل فعلاً في السوق',
-    desc: 'النظام يدعم التقويم الهجري والميلادي معاً. اختر ما تريد أو اعرضهما معاً.',
+    id: 'reports',
+    title: 'التقارير',
+    subtitle: 'أرقام المكتب أمامك لا في ذاكرة أحد',
+    desc: 'تقارير مبنية من بيانات التشغيل نفسها: التدفق النقدي، نسبة التحصيل، أعمار الديون، وملخص لكل عقار.',
     details: [
-      'عرض التاريخ الهجري والميلادي في كل سجل',
-      'تصفية الحركات حسب الهجري أو الميلادي',
-      'تقارير شهرية هجرية مناسبة للسوق السعودي',
+      'تقرير التدفق النقدي',
+      'تقرير نسبة التحصيل',
+      'تقرير أعمار الديون (المتأخرات حسب مدة التأخر)',
+      'ملخص لكل عقار: وحداته وعقوده ودفعاته',
     ],
   },
   {
-    id: 'security',
-    title: 'الأمان والخصوصية',
-    subtitle: 'بياناتك لك وحدك',
-    desc: 'بنية تحتية سحابية حديثة بمعايير أمان مؤسسية. بياناتك محمية ومعزولة تماماً.',
+    id: 'documents-memory',
+    title: 'المستندات والذاكرة',
+    subtitle: 'معرفة المكتب تبقى في المكتب',
+    desc: 'أرشيف مستندات مربوط بالسجلات، وخطابات رسمية تُنشأ من داخل النظام، وذاكرة مكتب تحفظ الملاحظات المهمة.',
     details: [
-      'تشفير البيانات في الراحة وعبر الشبكة (TLS)',
-      'صلاحيات Row-Level Security (RLS)، لا أحد يرى بياناتك',
-      'نسخ احتياطية تلقائية يومية',
-      'بنية تحتية على Supabase بمعايير SOC2',
+      'أرشيف مستندات مربوط بالعقار أو العقد أو الدفعة',
+      'إنشاء خطابات رسمية من داخل النظام',
+      'ملاحظات على السجلات بصلاحيات واضحة',
+      'ذاكرة مكتب للملاحظات والقرارات المهمة',
     ],
   },
 ];
 ---
 
 <BaseLayout
-  title="مميزات قيد العقار | نظام إدارة التدفقات المالية للمكاتب العقارية"
-  description="استكشف مميزات قيد العقار الكاملة: تسجيل الدخل والمصروفات، إدارة العمولات، توزيع الوكلاء، لوحة التحكم، دعم الهجري."
+  title="مميزات قيد العقار | وحدات المكتب في مكان واحد"
+  description="تعرف على وحدات قيد العقار: الرادار والمتابعات، عقود الإيجار والاستحقاقات، التحصيل، دفتر المكتب، التقارير، والمستندات والذاكرة."
   canonical="/features"
 >
 
   <!-- Hero -->
   <section class="py-20 md:py-28 text-center">
-    <div class="container max-w-3xl">
+    <div class="container max-w-2xl">
       <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        مميزات مصمَّمة
-        <span class="gradient-text"> للمكتب العقاري</span>
+        وحدات المكتب في
+        <span class="gradient-text"> مكان واحد</span>
       </h1>
-      <p class="text-text-muted text-lg leading-relaxed mb-10">
-        كل ميزة في قيد العقار بُنيت بناءً على الطريقة التي يعمل بها المكتب العقاري السعودي فعلاً، لا نظرياً.
+      <p class="text-text-muted text-lg">
+        مبني حول يوم المكتب العقاري السعودي الفعلي: من رادار الصباح إلى تحصيل آخر دفعة.
       </p>
-      <a
-        href="https://app.qaydalaqar.com/auth/signup"
-        class="inline-block px-8 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-brand-primary/25"
-      >
-        جرّب كل المميزات مجاناً
-      </a>
     </div>
   </section>
 
   <!-- Features detail -->
   <section class="pb-20 md:pb-28">
-    <div class="container max-w-4xl">
-      <div class="space-y-16">
-        {features.map((f, i) => (
-          <div id={f.id} class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div class={i % 2 === 1 ? 'md:order-2' : ''}>
-              <span class="text-brand-primary text-sm font-medium">{f.subtitle}</span>
-              <h2 class="text-2xl md:text-3xl font-bold text-white mt-2 mb-4">{f.title}</h2>
-              <p class="text-text-muted leading-relaxed mb-6">{f.desc}</p>
-              <ul class="space-y-3">
-                {f.details.map((d) => (
-                  <li class="flex items-start gap-3 text-sm text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    {d}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div class={`rounded-2xl bg-[#0f1729] border border-[#1f2937] p-8 flex items-center justify-center min-h-[200px] ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-              <div class="text-center text-text-muted">
-                <div class="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mx-auto mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                  </svg>
-                </div>
-                <p class="text-sm">{f.title}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div class="container max-w-4xl space-y-8">
+      {features.map((feature) => (
+        <div id={feature.id} class="p-8 rounded-2xl bg-[#0f1729] border border-[#1f2937]">
+          <p class="text-brand-accent text-sm font-semibold mb-2">{feature.subtitle}</p>
+          <h2 class="text-white font-bold text-2xl mb-4">{feature.title}</h2>
+          <p class="text-text-muted leading-relaxed mb-6">{feature.desc}</p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {feature.details.map((detail) => (
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 mt-0.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {detail}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   </section>
 

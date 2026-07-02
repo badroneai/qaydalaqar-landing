@@ -1,105 +1,53 @@
 ---
-import CurrencyAmount from './CurrencyAmount.astro';
+/**
+ * Access section — replaces the old pricing plans.
+ * Pricing is intentionally NOT announced; access is via a guided pilot.
+ */
+const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURIComponent('طلب انضمام إلى قيد العقار')}`;
 ---
 
-<section id="pricing" class="py-20 md:py-28 bg-[#0f1729] border-y border-[#1f2937]">
+<section id="access" class="py-20 md:py-28 bg-[#0f1729] border-y border-[#1f2937]">
   <div class="container">
 
     <!-- Header -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        أسعار شفافة وبسيطة
+        الوصول حالياً عبر تجربة موجّهة
       </h2>
-      <p class="text-text-muted text-lg max-w-xl mx-auto">
-        ابدأ مجاناً اليوم. الخطة الاحترافية قادمة قريباً بميزات متقدمة.
+      <p class="text-text-muted text-lg max-w-2xl mx-auto">
+        نعمل الآن مع عدد محدود من المكاتب في تجربة موجّهة، لنضمن أن المنتج يخدم يوم المكتب الحقيقي قبل الفتح العام.
       </p>
     </div>
 
-    <!-- Plans -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-
-      <!-- Free Plan -->
-      <div class="p-8 rounded-2xl bg-[#111c32] border border-[#1f2937]">
-        <div class="mb-6">
-          <h3 class="text-white font-bold text-xl mb-1">مجانية</h3>
-          <p class="text-text-muted text-sm">ابدأ بدون أي تكلفة</p>
-        </div>
-        <div class="mb-6">
-          <CurrencyAmount value="٠" class="text-4xl font-bold text-white" />
-          <span class="text-text-muted mr-1">/ شهرياً</span>
-        </div>
-        <a
-          href="https://app.qaydalaqar.com/auth/signup"
-          class="block w-full py-3 text-center bg-[#1f2937] hover:bg-[#2d3748] text-white font-semibold rounded-xl transition-colors mb-8"
-        >
-          ابدأ مجاناً
-        </a>
-        <ul class="space-y-4 text-sm">
-          {[
-            'مستخدم واحد',
-            'حتى ٥٠ حركة مالية شهرياً',
-            'إدارة العمولات',
-            'لوحة التحكم الأساسية',
-            'تقارير أساسية',
-            'دعم عبر البريد الإلكتروني',
-          ].map((item) => (
-            <li class="flex items-center gap-3 text-gray-300">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Pro Plan -->
-      <div class="relative p-8 rounded-2xl bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 border border-brand-primary/30">
-        <!-- Badge -->
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span class="px-4 py-1 bg-brand-primary text-[#0F172D] text-xs font-semibold rounded-full shadow-lg">
-            قريباً
-          </span>
-        </div>
-
-        <div class="mb-6">
-          <h3 class="text-white font-bold text-xl mb-1">احترافية</h3>
-          <p class="text-text-muted text-sm">للمكاتب التي تريد كل شيء</p>
-        </div>
-        <div class="mb-6">
-          <span class="text-3xl font-bold text-white">قريباً</span>
-        </div>
-        <a
-          href="/contact"
-          class="block w-full py-3 text-center bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-semibold rounded-xl transition-colors mb-8"
-        >
-          تواصل معنا
-        </a>
-        <ul class="space-y-4 text-sm">
-          {[
-            'مستخدمون غير محدودين',
-            'حركات مالية غير محدودة',
-            'إدارة العمولات المتقدمة',
-            'لوحة تحكم متقدمة + تقارير',
-            'تصدير PDF و Excel',
-            'دعم ذو أولوية',
-          ].map((item) => (
-            <li class="flex items-center gap-3 text-gray-300">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
+    <!-- Access card -->
+    <div class="max-w-2xl mx-auto p-8 md:p-10 rounded-2xl bg-[#111c32] border border-brand-primary/30 text-center">
+      <h3 class="text-white font-bold text-xl mb-4">ماذا تعني التجربة الموجّهة؟</h3>
+      <ul class="space-y-4 text-sm text-gray-300 max-w-md mx-auto mb-8 text-right">
+        {[
+          'نفعّل مكتبك بنطاق متفق عليه ونرافقك في البداية.',
+          'تستخدم النظام على عمل مكتبك الحقيقي، وملاحظاتك تشكّل المنتج مباشرة.',
+          'قناة تواصل واحدة واضحة طوال فترة التجربة.',
+          'الأسعار لم تُعلن بعد — المنضمون في التجربة يُبلَّغون بها أولاً قبل أي التزام.',
+        ].map((item) => (
+          <li class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 mt-0.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <a
+        href={requestAccessMailto}
+        class="inline-block px-10 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-brand-primary/20 hover:-translate-y-0.5"
+      >
+        راسلنا لطلب الانضمام
+      </a>
+      <p class="text-text-muted text-sm mt-6">
+        لديك حساب؟
+        <a href="https://app.qaydalaqar.com/auth/login" class="text-brand-primary hover:underline">تسجيل الدخول</a>
+      </p>
     </div>
-
-    <!-- Note -->
-    <p class="text-center text-text-muted text-sm mt-8">
-      الأسعار النهائية ستُعلن قريباً. التواصل المبكر يضمن أفضل العروض.
-    </p>
 
   </div>
 </section>

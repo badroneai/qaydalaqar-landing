@@ -1,70 +1,60 @@
 ---
-const cases = [
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-    title: 'صاحب المكتب الصغير',
-    badge: 'الأكثر شيوعاً',
-    desc: 'يريد نظاماً بسيطاً يبدأ فوراً بدون خبرة محاسبية. قيد العقار يعمل من أول يوم، ادخل بياناتك وشاهد أرقامك في الحال.',
-    tags: ['مكتب صغير', 'بداية سريعة', 'بدون تدريب'],
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
-    title: 'مدير المكتب المتوسط',
-    badge: 'الأنسب للتوسع',
-    desc: 'يحتاج متابعة عمولات عدة وكلاء وتوزيع أرباحهم بشفافية. النظام يوزّع النسب تلقائياً ويحفظ سجل كل وكيل.',
-    tags: ['فريق متعدد', 'توزيع عمولات', 'تقارير وكلاء'],
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`,
-    title: 'الوسيط المستقل',
-    badge: 'لإثبات الأداء',
-    desc: 'يرغب بإثبات دخله بشكل منظَّم وتتبع أدائه الشهري. قيد العقار يعطيه صورة واضحة عن مساره المالي.',
-    tags: ['وسيط مستقل', 'إثبات دخل', 'تتبع أداء'],
-  },
-];
+/**
+ * Ejar import highlight — replaces the old commissions-era personas section.
+ * The claim is deliberately "file import with review", NOT an Ejar API integration.
+ */
 ---
 
 <section class="py-20 md:py-28">
   <div class="container">
 
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        مَن يستفيد من
-        <span class="gradient-text"> قيد العقار؟</span>
-      </h2>
-      <p class="text-text-muted text-lg max-w-xl mx-auto">
-        سواء كنت صاحب مكتب صغير أو مدير فريق أو وسيطاً مستقلاً، النظام يتكيّف مع وضعك.
-      </p>
-    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
 
-    <!-- Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {cases.map((c) => (
-        <div class="card-hover relative p-6 rounded-2xl bg-[#0f1729] border border-[#1f2937]">
-          <!-- Badge -->
-          <span class="absolute top-4 left-4 px-2 py-1 text-xs font-medium bg-brand-primary/10 text-brand-primary rounded-full border border-brand-primary/20">
-            {c.badge}
-          </span>
+      <!-- Copy -->
+      <div class="text-center lg:text-right">
+        <p class="text-brand-accent text-sm font-semibold mb-3">أسرع طريقة للبدء</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+          عندك عقد من منصة إيجار؟
+          <span class="gradient-text"> ارفعه وخلّص.</span>
+        </h2>
+        <p class="text-text-muted text-lg leading-relaxed mb-4">
+          ارفع ملف العقد (PDF)، وقيد العقار يستخرج بياناته الأساسية ويعرضها عليك للمراجعة قبل إنشاء أي سجل. عند التأكيد، يُنشأ العقد وجدول استحقاقاته تلقائياً، ويبقى ملف المصدر محفوظاً ومربوطاً بالعقد للرجوع إليه.
+        </p>
+        <p class="text-text-muted text-sm">
+          استيراد ملف العقد بمراجعة منك قبل إنشاء أي سجل — وليس ربطاً آلياً بمنصة إيجار.
+        </p>
+      </div>
 
-          <!-- Icon -->
-          <div class="w-14 h-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-5 mt-6">
-            <Fragment set:html={c.icon} />
+      <!-- Flow visual -->
+      <div class="flex items-center justify-center gap-4" aria-hidden="true">
+        <div class="w-36 p-5 rounded-2xl bg-[#0f1729] border border-[#1f2937] text-center">
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mx-auto mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 3h7l4 4v14H7z"/><path stroke-linecap="round" stroke-linejoin="round" d="M14 3v4h4M10 12h5M10 16h5"/></svg>
           </div>
-
-          <h3 class="text-white font-bold text-xl mb-3">{c.title}</h3>
-          <p class="text-text-muted text-sm leading-relaxed mb-5">{c.desc}</p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2">
-            {c.tags.map((tag) => (
-              <span class="px-3 py-1 bg-[#111c32] text-text-muted rounded-full text-xs border border-[#1f2937]">
-                {tag}
-              </span>
-            ))}
-          </div>
+          <p class="text-gray-300 text-sm">عقد إيجار (PDF)</p>
         </div>
-      ))}
+
+        <span class="text-3xl text-brand-accent font-bold">←</span>
+
+        <div class="w-36 p-5 rounded-2xl bg-[#0f1729] border border-[#1f2937] text-center">
+          <div class="space-y-2 mb-3 px-1">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+              <span class="h-1.5 flex-1 rounded-full bg-[#1f2937]"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+              <span class="h-1.5 flex-1 rounded-full bg-[#1f2937]"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
+              <span class="h-1.5 flex-1 rounded-full bg-[#1f2937]"></span>
+            </div>
+          </div>
+          <p class="text-gray-300 text-sm">جدول الاستحقاقات</p>
+        </div>
+      </div>
+
     </div>
 
   </div>
