@@ -6,9 +6,15 @@ import {
   resourcesIndexJsonLd,
   PUBLIC_SITE_NAME,
 } from '../../content/resources';
+import { articlesForTopic, resourceTopics, topicUrl } from '../../content/resource-topics';
 
 const description =
   'مقالات عربية عملية تساعد المكاتب العقارية على تنظيم التشغيل اليومي، التحصيل، العقود، دفتر المكتب، الذاكرة، والتقارير.';
+
+const topicCards = resourceTopics.map((topic) => ({
+  topic,
+  articleCount: articlesForTopic(topic, publicResourceArticles).length,
+}));
 ---
 
 <BaseLayout
@@ -39,14 +45,38 @@ const description =
   <section class="pb-20 md:pb-28">
     <div class="container">
       <div class="mb-10 max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">الأدلة المنشورة</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">مسارات التعلم</h2>
         <p class="text-text-muted text-lg leading-relaxed">
-          كل دليل مصمم ليجيب عن سؤال تشغيلي محدد، لا ليضيف كلمات مفتاحية فقط. هذا يجعل المحتوى مفيداً
-          للزائر، ومفهوماً لمحركات البحث وأنظمة الإجابة التي تعتمد على مصادر واضحة.
+          ابدأ من المسار الأقرب لسؤالك، ثم انتقل إلى الأدلة والمصطلحات المرتبطة به. هذه البنية تساعد
+          الزائر على الفهم المتدرج، وتوضح علاقة كل دليل ببقية تشغيل المكتب العقاري.
         </p>
       </div>
 
-      <div class="mb-10 rounded-2xl border border-brand-primary/30 bg-brand-primary/10 p-6 md:p-8">
+      <div class="mb-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {topicCards.map(({ topic, articleCount }) => (
+          <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6 flex flex-col">
+            <p class="text-brand-primary text-sm font-semibold mb-3">{topic.eyebrow}</p>
+            <h3 class="text-white font-bold text-xl leading-snug mb-4">
+              <a href={topicUrl(topic)} class="hover:text-brand-primary transition-colors">
+                {topic.title}
+              </a>
+            </h3>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">{topic.description}</p>
+            <div class="mt-6 flex items-center justify-between gap-4">
+              <span class="text-text-muted text-xs">{articleCount} أدلة مرتبطة</span>
+              <a
+                href={topicUrl(topic)}
+                class="inline-flex text-brand-primary text-sm font-semibold hover:underline"
+                aria-label={`افتح مسار: ${topic.title}`}
+              >
+                فتح المسار ←
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mb-14 rounded-2xl border border-brand-primary/30 bg-brand-primary/10 p-6 md:p-8">
         <p class="text-brand-primary text-sm font-semibold mb-2">مرجع سريع</p>
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <div>
@@ -62,6 +92,14 @@ const description =
             افتح القاموس
           </a>
         </div>
+      </div>
+
+      <div class="mb-10 max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">الأدلة المنشورة</h2>
+        <p class="text-text-muted text-lg leading-relaxed">
+          كل دليل مصمم ليجيب عن سؤال تشغيلي محدد، لا ليضيف كلمات مفتاحية فقط. هذا يجعل المحتوى مفيداً
+          للزائر، ومفهوماً لمحركات البحث وأنظمة الإجابة التي تعتمد على مصادر واضحة.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

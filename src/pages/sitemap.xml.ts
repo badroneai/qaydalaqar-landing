@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { articleUrl, publicResourceArticles } from '../content/resources';
+import { resourceTopics, topicUrl } from '../content/resource-topics';
 
 export async function GET() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -31,7 +32,13 @@ export async function GET() {
     lastmod: article.updatedAt,
   }));
 
-  const allPages = [...staticPages, ...resourcePages, ...blogPages];
+  const topicPages = resourceTopics.map((topic) => ({
+    url: `https://qaydalaqar.com${topicUrl(topic)}`,
+    priority: '0.85',
+    changefreq: 'monthly',
+  }));
+
+  const allPages = [...staticPages, ...topicPages, ...resourcePages, ...blogPages];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
