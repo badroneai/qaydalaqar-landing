@@ -2,6 +2,7 @@ import { getCollection } from 'astro:content';
 import { articleUrl, publicResourceArticles } from '../content/resources';
 import { resourceTopics, topicUrl } from '../content/resource-topics';
 import { publicResourceTemplates, templateUrl } from '../content/resource-templates';
+import { solutionPages, solutionUrl } from '../content/resource-solutions';
 
 export async function GET() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -15,6 +16,7 @@ export async function GET() {
     { url: 'https://qaydalaqar.com/resources/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://qaydalaqar.com/resources/terms/', priority: '0.8', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/resources/templates/', priority: '0.85', changefreq: 'monthly' },
+    { url: 'https://qaydalaqar.com/resources/solutions/', priority: '0.85', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/blog/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://qaydalaqar.com/privacy/', priority: '0.3', changefreq: 'yearly' },
     { url: 'https://qaydalaqar.com/terms/', priority: '0.3', changefreq: 'yearly' },
@@ -47,7 +49,14 @@ export async function GET() {
     lastmod: template.updatedAt,
   }));
 
-  const allPages = [...staticPages, ...topicPages, ...templatePages, ...resourcePages, ...blogPages];
+  const solutionSitemapPages = solutionPages.map((page) => ({
+    url: `https://qaydalaqar.com${solutionUrl(page)}`,
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: page.updatedAt,
+  }));
+
+  const allPages = [...staticPages, ...topicPages, ...templatePages, ...solutionSitemapPages, ...resourcePages, ...blogPages];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

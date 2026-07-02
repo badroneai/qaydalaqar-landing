@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { PUBLIC_SITE_NAME } from '../../../content/resources';
+import { solutionPages, solutionUrl } from '../../../content/resource-solutions';
+
+const description =
+  'صفحات عملية لمن يبحث عن برنامج إدارة مكتب عقاري، بديل الإكسل، أو طريقة تنظيم مكتب عقاري صغير.';
+---
+
+<BaseLayout
+  title={`حلول تشغيل المكاتب العقارية | ${PUBLIC_SITE_NAME}`}
+  description={description}
+  canonical="/resources/solutions"
+>
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container relative max-w-4xl">
+      <a href="/resources" class="text-brand-primary text-sm font-semibold hover:underline">مركز المعرفة</a>
+      <p class="text-brand-primary font-semibold mt-8 mb-4">حلول حسب نية البحث</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+        اختر السؤال الأقرب لطريقة بحثك
+      </h1>
+      <p class="text-text-muted text-lg md:text-xl leading-relaxed">
+        صفحات مختصرة تساعد صاحب المكتب على فهم الخيار العملي: برنامج إدارة، بديل إكسل، أو طريقة تشغيل مكتب صغير.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {solutionPages.map((page) => (
+          <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6 flex flex-col">
+            <p class="text-brand-primary text-sm font-semibold mb-3">{page.audience}</p>
+            <h2 class="text-white font-bold text-xl leading-snug mb-4">
+              <a href={solutionUrl(page)} class="hover:text-brand-primary transition-colors">
+                {page.title}
+              </a>
+            </h2>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">{page.description}</p>
+            <a href={solutionUrl(page)} class="mt-6 inline-flex text-brand-primary text-sm font-semibold hover:underline">
+              قراءة الصفحة ←
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
