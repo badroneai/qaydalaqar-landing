@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { articleUrl, publicResourceArticles } from '../../../content/resources';
+import {
+  solutionJsonLd,
+  solutionPages,
+  solutionUrl,
+  type SolutionPage,
+} from '../../../content/resource-solutions';
+
+export function getStaticPaths() {
+  return solutionPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props as { page: SolutionPage };
+const relatedArticles = publicResourceArticles.filter((article) => page.relatedArticleSlugs.includes(article.slug));
+---
+
+<BaseLayout
+  title={`${page.title} | قيد العقار`}
+  description={page.description}
+  canonical={solutionUrl(page)}
+  jsonLd={solutionJsonLd(page)}
+>
+  <article>
+    <header class="relative py-20 md:py-28 overflow-hidden border-b border-[#1f2937]">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+      </div>
+      <div class="container relative max-w-4xl">
+        <a href="/resources/solutions" class="text-brand-primary text-sm font-semibold hover:underline">حلول تشغيلية</a>
+        <p class="text-brand-primary font-semibold mt-8 mb-4">{page.audience}</p>
+        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">{page.title}</h1>
+        <p class="text-text-muted text-lg md:text-xl leading-relaxed">{page.description}</p>
+      </div>
+    </header>
+
+    <div class="container max-w-4xl py-14 md:py-20">
+      <div class="space-y-12">
+        {page.sections.map((section) => (
+          <section>
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-5">{section.heading}</h2>
+            <div class="space-y-5">
+              {section.body.map((paragraph) => (
+                <p class="text-gray-300 leading-9 text-lg">{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <section class="mt-12 rounded-2xl border border-brand-primary/30 bg-brand-primary/10 p-6 md:p-8">
+        <h2 class="text-white font-bold text-xl mb-5">قائمة فحص سريعة</h2>
+        <ul class="space-y-3">
+          {page.checklist.map((item) => (
+            <li class="flex gap-3 text-gray-200 leading-relaxed">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-primary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <aside class="mt-8 rounded-2xl border border-brand-primary/30 bg-[#0f1729] p-6 md:p-8">
+        <p class="text-brand-primary text-sm font-semibold mb-2">داخل قيد العقار</p>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+          <div>
+            <h2 class="text-white font-bold text-xl mb-3">{page.cta.title}</h2>
+            <p class="text-gray-300 leading-relaxed">{page.cta.body}</p>
+          </div>
+          <a
+            href={page.cta.href}
+            class="shrink-0 inline-flex justify-center rounded-xl bg-white px-5 py-3 text-[#0b1220] font-semibold hover:bg-gray-200 transition-colors"
+          >
+            {page.cta.label}
+          </a>
+        </div>
+      </aside>
+
+      <section class="mt-16">
+        <h2 class="text-2xl font-bold text-white mb-6">أدلة تساعدك</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {relatedArticles.map((article) => (
+            <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-5">
+              <p class="text-brand-primary text-xs font-semibold mb-3">{article.category}</p>
+              <h3 class="text-white font-semibold leading-snug">
+                <a href={articleUrl(article)} class="hover:text-brand-primary transition-colors">
+                  {article.title}
+                </a>
+              </h3>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

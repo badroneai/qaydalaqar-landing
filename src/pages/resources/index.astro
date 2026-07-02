@@ -8,6 +8,7 @@ import {
 } from '../../content/resources';
 import { articlesForTopic, resourceTopics, topicUrl } from '../../content/resource-topics';
 import { publicResourceTemplates, templateUrl } from '../../content/resource-templates';
+import { solutionPages, solutionUrl } from '../../content/resource-solutions';
 
 const description =
   'مقالات عربية عملية تساعد المكاتب العقارية على تنظيم التشغيل اليومي، التحصيل، العقود، دفتر المكتب، الذاكرة، والتقارير.';
@@ -141,6 +142,35 @@ const guideArticles = publicResourceArticles.filter((article) => !article.isPill
               <p class="text-brand-primary text-xs font-semibold mb-2">{template.category}</p>
               <h3 class="text-white font-bold leading-snug">{template.title}</h3>
               <p class="mt-2 text-text-muted text-sm leading-relaxed">{template.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-14 rounded-2xl border border-[#1f2937] bg-[#0f1729] p-6 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-6">
+          <div>
+            <p class="text-brand-primary text-sm font-semibold mb-2">حلول حسب نية البحث</p>
+            <h2 class="text-white font-bold text-2xl md:text-3xl mb-2">لمن يبحث عن برنامج أو بديل إكسل</h2>
+            <p class="text-gray-300 leading-relaxed">
+              صفحات موجهة للأسئلة التجارية القريبة من قرار التجربة والشراء.
+            </p>
+          </div>
+          <a
+            href="/resources/solutions"
+            class="shrink-0 inline-flex justify-center rounded-xl border border-brand-primary/40 px-5 py-3 text-brand-primary font-semibold hover:bg-brand-primary/10 transition-colors"
+          >
+            عرض الحلول
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {solutionPages.map((page) => (
+            <a
+              href={solutionUrl(page)}
+              class="rounded-xl border border-[#273449] bg-background/50 p-4 hover:border-brand-primary/50 transition-colors"
+            >
+              <h3 class="text-white font-bold leading-snug">{page.title}</h3>
+              <p class="mt-2 text-text-muted text-sm leading-relaxed">{page.description}</p>
             </a>
           ))}
         </div>

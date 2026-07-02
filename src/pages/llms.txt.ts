@@ -1,6 +1,7 @@
 import { articleUrl, publicResourceArticles } from '../content/resources';
 import { resourceTopics, topicUrl } from '../content/resource-topics';
 import { publicResourceTemplates, templateUrl } from '../content/resource-templates';
+import { solutionPages, solutionUrl } from '../content/resource-solutions';
 
 const siteOrigin = 'https://qaydalaqar.com';
 
@@ -15,6 +16,7 @@ export function GET() {
     `- Knowledge hub: ${siteOrigin}/resources/`,
     `- Operational glossary: ${siteOrigin}/resources/terms/`,
     `- Practical templates: ${siteOrigin}/resources/templates/`,
+    `- Solution pages: ${siteOrigin}/resources/solutions/`,
     `- Blog: ${siteOrigin}/blog/`,
     '',
     '## Topic Paths',
@@ -25,6 +27,9 @@ export function GET() {
     '',
     '## Practical Templates',
     ...publicResourceTemplates.map((template) => `- ${template.title}: ${siteOrigin}${templateUrl(template)}`),
+    '',
+    '## Commercial Search Pages',
+    ...solutionPages.map((page) => `- ${page.title}: ${siteOrigin}${solutionUrl(page)}`),
     '',
     '## Product Boundaries',
     '- Public content describes product concepts and operational practices.',
