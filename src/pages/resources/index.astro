@@ -16,6 +16,8 @@ const topicCards = resourceTopics.map((topic) => ({
   topic,
   articleCount: articlesForTopic(topic, publicResourceArticles).length,
 }));
+const pillarArticles = publicResourceArticles.filter((article) => article.isPillar);
+const guideArticles = publicResourceArticles.filter((article) => !article.isPillar);
 ---
 
 <BaseLayout
@@ -77,6 +79,43 @@ const topicCards = resourceTopics.map((topic) => ({
         ))}
       </div>
 
+      {pillarArticles.length > 0 && (
+        <div class="mb-14">
+          <div class="mb-6 max-w-3xl">
+            <p class="text-brand-primary text-sm font-semibold mb-2">أدلة مرجعية كبرى</p>
+            <h2 class="text-white font-bold text-2xl md:text-3xl mb-2">ابدأ من الصفحة الأم</h2>
+            <p class="text-gray-300 leading-relaxed">
+              صفحات طويلة تربط المسارات والقوالب والمقالات في مرجع واحد يمكن العودة إليه عند بناء طريقة عمل المكتب.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 gap-6">
+            {pillarArticles.map((article) => (
+              <article class="card-hover rounded-2xl bg-[#0f1729] border border-brand-primary/30 p-6 md:p-8">
+                <div class="flex flex-wrap items-center gap-3 mb-5">
+                  <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full border border-brand-primary/20 font-semibold">
+                    {article.category}
+                  </span>
+                  <span class="text-text-muted text-xs">{article.readingTime}</span>
+                </div>
+                <h3 class="text-white font-bold text-2xl md:text-3xl leading-snug mb-4">
+                  <a href={articleUrl(article)} class="hover:text-brand-primary transition-colors">
+                    {article.title}
+                  </a>
+                </h3>
+                <p class="text-text-muted leading-relaxed max-w-4xl">{article.description}</p>
+                <a
+                  href={articleUrl(article)}
+                  class="mt-6 inline-flex text-brand-primary text-sm font-semibold hover:underline"
+                  aria-label={`افتح الدليل المرجعي: ${article.title}`}
+                >
+                  فتح الدليل المرجعي ←
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div class="mb-14 rounded-2xl border border-brand-primary/30 bg-[#0f1729] p-6 md:p-8">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-6">
           <div>
@@ -134,7 +173,7 @@ const topicCards = resourceTopics.map((topic) => ({
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {publicResourceArticles.map((article) => (
+        {guideArticles.map((article) => (
           <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6 flex flex-col">
             <div class="flex items-center justify-between gap-3 mb-5">
               <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full border border-brand-primary/20 font-semibold">
