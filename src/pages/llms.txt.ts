@@ -11,6 +11,7 @@ export function GET() {
     '## Public Pages',
     `- Home: ${siteOrigin}/`,
     `- Knowledge hub: ${siteOrigin}/resources/`,
+    `- Operational glossary: ${siteOrigin}/resources/terms/`,
     `- Blog: ${siteOrigin}/blog/`,
     '',
     '## Guides',
