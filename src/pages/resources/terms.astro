@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articleUrl, publicResourceArticles } from '../../content/resources';
+import { glossaryJsonLd, glossaryTerms } from '../../content/glossary';
+
+const termsByCategory = glossaryTerms.reduce<Record<string, typeof glossaryTerms>>((groups, term) => {
+  const current = groups[term.category] ?? [];
+  groups[term.category] = [...current, term];
+  return groups;
+}, {});
+
+const description =
+  'قاموس عربي عملي يشرح مصطلحات تشغيل المكتب العقاري: الرادار، المتابعات، أعمار الديون، دفتر المكتب، المستندات، والتقارير.';
+
+const categoryIds: Record<string, string> = {
+  'تشغيل المكتب': 'office-operations',
+  التحصيل: 'collection',
+  'دفتر المكتب': 'office-ledger',
+  'عقود الإيجار': 'leases',
+  المستندات: 'documents',
+  الذاكرة: 'memory',
+  التقارير: 'reports',
+};
+
+const categoryId = (category: string) => categoryIds[category] ?? category;
+---
+
+<BaseLayout
+  title="قاموس تشغيل المكتب العقاري | قيد العقار"
+  description={description}
+  canonical="/resources/terms"
+  jsonLd={glossaryJsonLd(publicResourceArticles)}
+>
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container relative max-w-4xl">
+      <a href="/resources" class="text-brand-primary text-sm font-semibold hover:underline">مركز المعرفة</a>
+      <p class="text-brand-primary font-semibold mt-8 mb-4">قاموس عملي</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+        مصطلحات تشغيل المكتب العقاري بلغة واضحة
+      </h1>
+      <p class="text-text-muted text-lg md:text-xl leading-relaxed">
+        هذه الصفحة لا تشرح المصطلح لغوياً فقط، بل توضّح كيف يستخدمه المكتب العقاري في يومه:
+        التحصيل، العقود، المستندات، الذاكرة، والتقارير.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] gap-8">
+        <aside class="lg:sticky lg:top-24 h-fit rounded-2xl border border-[#1f2937] bg-[#0f1729] p-5">
+          <h2 class="text-white font-bold mb-4">الأقسام</h2>
+          <nav class="space-y-2" aria-label="أقسام القاموس">
+            {Object.keys(termsByCategory).map((category) => (
+              <a href={`#${categoryId(category)}`} class="block text-text-muted hover:text-white text-sm transition-colors">
+                {category}
+              </a>
+            ))}
+          </nav>
+        </aside>
+
+        <div class="space-y-12">
+          {Object.entries(termsByCategory).map(([category, terms]) => (
+            <section id={categoryId(category)} class="scroll-mt-24">
+              <h2 class="text-2xl md:text-3xl font-bold text-white mb-5">{category}</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {terms.map((term) => {
+                  const related = publicResourceArticles.find((article) => article.slug === term.relatedSlug);
+                  return (
+                    <article class="rounded-2xl border border-[#1f2937] bg-[#0f1729] p-6">
+                      <h3 class="text-white font-bold text-xl mb-3">{term.term}</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">{term.summary}</p>
+                      <div class="rounded-xl border border-brand-primary/20 bg-brand-primary/10 p-4">
+                        <p class="text-brand-primary text-xs font-semibold mb-2">كيف يستخدمه المكتب؟</p>
+                        <p class="text-gray-200 text-sm leading-relaxed">{term.officeUse}</p>
+                      </div>
+                      {related && (
+                        <a
+                          href={articleUrl(related)}
+                          class="mt-4 inline-flex text-brand-primary text-sm font-semibold hover:underline"
+                        >
+                          اقرأ الدليل المرتبط ←
+                        </a>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -11,6 +11,7 @@ export async function GET() {
     { url: 'https://qaydalaqar.com/about/', priority: '0.6', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/contact/', priority: '0.6', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/resources/', priority: '0.9', changefreq: 'weekly' },
+    { url: 'https://qaydalaqar.com/resources/terms/', priority: '0.8', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/blog/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://qaydalaqar.com/privacy/', priority: '0.3', changefreq: 'yearly' },
     { url: 'https://qaydalaqar.com/terms/', priority: '0.3', changefreq: 'yearly' },
