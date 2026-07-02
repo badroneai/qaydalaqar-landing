@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { glossaryTerms } from '../../../content/glossary';
+import { articleUrl, publicResourceArticles, PUBLIC_SITE_NAME } from '../../../content/resources';
+import {
+  articlesForTopic,
+  resourceTopics,
+  termsForTopic,
+  topicJsonLd,
+  topicUrl,
+  type ResourceTopic,
+} from '../../../content/resource-topics';
+
+export function getStaticPaths() {
+  return resourceTopics.map((topic) => ({
+    params: { topic: topic.slug },
+    props: { topic },
+  }));
+}
+
+const { topic } = Astro.props as { topic: ResourceTopic };
+const articles = articlesForTopic(topic, publicResourceArticles);
+const terms = termsForTopic(topic, glossaryTerms);
+const title = `${topic.title} | مركز معرفة ${PUBLIC_SITE_NAME}`;
+const canonical = topicUrl(topic);
+---
+
+<BaseLayout
+  title={title}
+  description={topic.description}
+  canonical={canonical}
+  jsonLd={topicJsonLd(topic, articles, terms)}
+>
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container relative">
+      <div class="max-w-4xl">
+        <a href="/resources" class="text-brand-primary font-semibold hover:underline">مركز المعرفة</a>
+        <p class="mt-6 text-brand-primary font-semibold">{topic.eyebrow}</p>
+        <h1 class="mt-4 text-4xl md:text-6xl font-bold text-white leading-tight">
+          {topic.title}
+        </h1>
+        <p class="mt-6 text-text-muted text-lg md:text-xl leading-relaxed">
+          {topic.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container">
+      <div class="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] gap-8 items-start">
+        <article class="rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6 md:p-8">
+          <p class="text-brand-primary text-sm font-semibold mb-3">السؤال العملي</p>
+          <h2 class="text-white text-2xl md:text-3xl font-bold leading-snug mb-5">
+            {topic.primaryQuestion}
+          </h2>
+          <p class="text-gray-300 leading-relaxed text-lg">
+            {topic.intro}
+          </p>
+
+          <div class="mt-10">
+            <h2 class="text-white text-2xl font-bold mb-5">ماذا ستتعلم في هذا المسار؟</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+              {topic.whatYouLearn.map((item, index) => (
+                <div class="rounded-xl border border-brand-primary/20 bg-brand-primary/10 p-4">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary text-background font-bold">
+                    {index + 1}
+                  </span>
+                  <p class="mt-4 text-gray-200 leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <h2 class="text-white text-2xl font-bold mb-5">قائمة تطبيق مختصرة</h2>
+            <ul class="space-y-3">
+              {topic.checklist.map((item) => (
+                <li class="flex gap-3 rounded-xl bg-background/60 border border-[#1f2937] p-4 text-gray-300 leading-relaxed">
+                  <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-primary"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
+        <aside class="space-y-6">
+          <section class="rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6">
+            <h2 class="text-white text-xl font-bold mb-4">أدلة هذا المسار</h2>
+            <div class="space-y-4">
+              {articles.map((article) => (
+                <a
+                  href={articleUrl(article)}
+                  class="block rounded-xl border border-[#273449] bg-background/50 p-4 hover:border-brand-primary/50 transition-colors"
+                >
+                  <p class="text-brand-primary text-xs font-semibold mb-2">{article.category}</p>
+                  <h3 class="text-white font-bold leading-snug">{article.title}</h3>
+                  <p class="mt-2 text-text-muted text-sm leading-relaxed">{article.description}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section class="rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6">
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <h2 class="text-white text-xl font-bold">مصطلحات مرتبطة</h2>
+              <a href="/resources/terms" class="text-brand-primary text-sm font-semibold hover:underline">
+                القاموس
+              </a>
+            </div>
+            <div class="space-y-3">
+              {terms.map((term) => (
+                <div class="rounded-xl border border-[#273449] bg-background/50 p-4">
+                  <p class="text-white font-bold">{term.term}</p>
+                  <p class="mt-2 text-text-muted text-sm leading-relaxed">{term.summary}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

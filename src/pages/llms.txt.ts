@@ -1,4 +1,5 @@
 import { articleUrl, publicResourceArticles } from '../content/resources';
+import { resourceTopics, topicUrl } from '../content/resource-topics';
 
 const siteOrigin = 'https://qaydalaqar.com';
 
@@ -13,6 +14,9 @@ export function GET() {
     `- Knowledge hub: ${siteOrigin}/resources/`,
     `- Operational glossary: ${siteOrigin}/resources/terms/`,
     `- Blog: ${siteOrigin}/blog/`,
+    '',
+    '## Topic Paths',
+    ...resourceTopics.map((topic) => `- ${topic.title}: ${siteOrigin}${topicUrl(topic)}`),
     '',
     '## Guides',
     ...publicResourceArticles.map((article) => `- ${article.title}: ${siteOrigin}${articleUrl(article)}`),
