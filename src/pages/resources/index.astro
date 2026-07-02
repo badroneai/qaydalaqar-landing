@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  articleUrl,
+  publicResourceArticles,
+  resourcesIndexJsonLd,
+  PUBLIC_SITE_NAME,
+} from '../../content/resources';
+
+const description =
+  'مقالات عربية عملية تساعد المكاتب العقارية على تنظيم التشغيل اليومي، التحصيل، العقود، دفتر المكتب، الذاكرة، والتقارير.';
+---
+
+<BaseLayout
+  title={`مركز معرفة ${PUBLIC_SITE_NAME} | تشغيل المكتب العقاري والتحصيل`}
+  description={description}
+  canonical="/resources"
+  jsonLd={resourcesIndexJsonLd()}
+>
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container relative">
+      <div class="max-w-3xl">
+        <p class="text-brand-primary font-semibold mb-4">مركز معرفة عملي</p>
+        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+          مرجع عربي لتشغيل المكتب العقاري بوضوح
+        </h1>
+        <p class="text-text-muted text-lg md:text-xl leading-relaxed">
+          مقالات مبنية حول الأسئلة اليومية للمكتب العقاري: كيف نتابع المتأخرات؟ كيف نفصل دفتر المكتب؟
+          كيف نحفظ ذاكرة الفريق؟ وكيف نقرأ التقارير قبل اتخاذ القرار؟
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container">
+      <div class="mb-10 max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">الأدلة المنشورة</h2>
+        <p class="text-text-muted text-lg leading-relaxed">
+          كل دليل مصمم ليجيب عن سؤال تشغيلي محدد، لا ليضيف كلمات مفتاحية فقط. هذا يجعل المحتوى مفيداً
+          للزائر، ومفهوماً لمحركات البحث وأنظمة الإجابة التي تعتمد على مصادر واضحة.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {publicResourceArticles.map((article) => (
+          <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6 flex flex-col">
+            <div class="flex items-center justify-between gap-3 mb-5">
+              <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full border border-brand-primary/20 font-semibold">
+                {article.category}
+              </span>
+              <span class="text-text-muted text-xs">{article.readingTime}</span>
+            </div>
+            <h3 class="text-white font-bold text-xl leading-snug mb-4">
+              <a href={articleUrl(article)} class="hover:text-brand-primary transition-colors">
+                {article.title}
+              </a>
+            </h3>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">{article.description}</p>
+            <a
+              href={articleUrl(article)}
+              class="mt-6 inline-flex text-brand-primary text-sm font-semibold hover:underline"
+              aria-label={`اقرأ الدليل: ${article.title}`}
+            >
+              قراءة الدليل ←
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

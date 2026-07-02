@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
+Disallow: /auth/
+Disallow: /app/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /auth/
+Disallow: /app/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /auth/
+Disallow: /app/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /auth/
+Disallow: /app/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /auth/
+Disallow: /app/
 
 Sitemap: https://qaydalaqar.com/sitemap.xml
