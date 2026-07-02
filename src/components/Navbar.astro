@@ -3,10 +3,12 @@ import MobileMenu from './MobileMenu.tsx';
 
 const navLinks = [
   { href: '/#features', label: 'المميزات' },
-  { href: '/pricing', label: 'الأسعار' },
+  { href: '/pricing', label: 'الانضمام' },
   { href: '/blog', label: 'المدونة' },
   { href: '/about', label: 'من نحن' },
 ];
+
+const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURIComponent('طلب انضمام إلى قيد العقار')}`;
 ---
 
 <header class="fixed top-0 inset-x-0 z-50 bg-[#0b1220]/90 backdrop-blur-md border-b border-[#1f2937]">
@@ -44,10 +46,10 @@ const navLinks = [
         تسجيل الدخول
       </a>
       <a
-        href="https://app.qaydalaqar.com/auth/signup"
+        href={requestAccessMailto}
         class="px-5 py-2 bg-brand-primary hover:bg-brand-dark text-[#0F172D] text-sm font-semibold rounded-lg transition-colors"
       >
-        ابدأ مجاناً
+        اطلب انضمامك
       </a>
     </div>
 
