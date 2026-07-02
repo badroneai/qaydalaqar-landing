@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { PUBLIC_SITE_NAME } from '../../../content/resources';
+import { resourceTopics, topicUrl } from '../../../content/resource-topics';
+import {
+  publicResourceTemplates,
+  templateUrl,
+  templatesIndexJsonLd,
+} from '../../../content/resource-templates';
+
+const description =
+  'قوالب عملية قابلة للتطبيق للمكاتب العقارية: سياسة تحصيل، تقرير مالك، تجديد عقد، افتتاح اليوم، أرشفة المستندات، ومراجعة المصروفات.';
+---
+
+<BaseLayout
+  title={`قوالب عملية للمكاتب العقارية | ${PUBLIC_SITE_NAME}`}
+  description={description}
+  canonical="/resources/templates"
+  jsonLd={templatesIndexJsonLd()}
+>
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container relative">
+      <div class="max-w-4xl">
+        <a href="/resources" class="text-brand-primary font-semibold hover:underline">مركز المعرفة</a>
+        <p class="mt-6 text-brand-primary font-semibold">قوالب عملية</p>
+        <h1 class="mt-4 text-4xl md:text-6xl font-bold text-white leading-tight">
+          أدوات جاهزة لتشغيل المكتب العقاري
+        </h1>
+        <p class="mt-6 text-text-muted text-lg md:text-xl leading-relaxed">
+          هذه القوالب مصممة لتطبيق مباشر داخل المكتب: افتح القالب، عدّل البنود حسب سياستك، ثم اربطه
+          بالمسار التشغيلي المناسب في فريقك.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {publicResourceTemplates.map((template) => {
+          const topic = resourceTopics.find((candidate) => candidate.slug === template.relatedTopicSlug);
+          return (
+            <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-6 flex flex-col">
+              <div class="flex items-center justify-between gap-3 mb-5">
+                <span class="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full border border-brand-primary/20 font-semibold">
+                  {template.category}
+                </span>
+                <span class="text-text-muted text-xs">{template.readingTime}</span>
+              </div>
+              <h2 class="text-white font-bold text-xl leading-snug mb-4">
+                <a href={templateUrl(template)} class="hover:text-brand-primary transition-colors">
+                  {template.title}
+                </a>
+              </h2>
+              <p class="text-text-muted text-sm leading-relaxed flex-1">{template.description}</p>
+              <div class="mt-6 flex flex-col gap-3">
+                <a
+                  href={templateUrl(template)}
+                  class="inline-flex text-brand-primary text-sm font-semibold hover:underline"
+                  aria-label={`افتح القالب: ${template.title}`}
+                >
+                  فتح القالب ←
+                </a>
+                {topic && (
+                  <a href={topicUrl(topic)} class="text-text-muted text-xs hover:text-white transition-colors">
+                    المسار المرتبط: {topic.title}
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
