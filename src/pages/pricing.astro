@@ -3,12 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import Faq from '../components/Faq.tsx';
 
-const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURIComponent('طلب انضمام إلى قيد العقار')}`;
+const signupUrl = 'https://app.qaydalaqar.com/auth/signup';
 ---
 
 <BaseLayout
-  title="الانضمام إلى قيد العقار | تجربة موجّهة"
-  description="الوصول إلى قيد العقار حالياً عبر تجربة موجّهة بعدد محدود من المكاتب. الأسعار لم تُعلن بعد — راسلنا لطلب الانضمام."
+  title="ابدأ مع قيد العقار | إطلاق تجريبي"
+  description="قيد العقار في مرحلة إطلاق تجريبي — أنشئ حساب مكتبك بالبريد الإلكتروني وابدأ مباشرة. الأسعار تُعلن لاحقاً ويُبلَّغ المستخدمون الحاليون بها أولاً."
   canonical="/pricing"
 >
 
@@ -16,26 +16,27 @@ const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURICompo
   <section class="py-20 md:py-28 text-center">
     <div class="container max-w-2xl">
       <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        الانضمام إلى
+        ابدأ مع
         <span class="gradient-text"> قيد العقار</span>
       </h1>
       <p class="text-text-muted text-lg">
-        الوصول حالياً عبر تجربة موجّهة بعدد محدود من المكاتب، لنضمن أن المنتج يخدم يوم المكتب الحقيقي قبل الفتح العام.
+        قيد العقار في مرحلة إطلاق تجريبي — أنشئ حساب مكتبك بالبريد الإلكتروني وابدأ الاستخدام فوراً.
       </p>
     </div>
   </section>
 
-  <!-- Access details -->
+  <!-- Getting started -->
   <section class="pb-20 md:pb-28">
     <div class="container">
       <div class="max-w-2xl mx-auto p-8 md:p-10 rounded-2xl bg-[#0f1729] border border-brand-primary/30">
-        <h2 class="text-white font-bold text-xl mb-6 text-center">ماذا تعني التجربة الموجّهة؟</h2>
+        <h2 class="text-white font-bold text-xl mb-6 text-center">ماذا تعني مرحلة الإطلاق التجريبي؟</h2>
         <ul class="space-y-4 text-sm text-gray-300 mb-10">
           {[
-            'نفعّل مكتبك بنطاق متفق عليه ونرافقك في البداية.',
-            'تستخدم النظام على عمل مكتبك الحقيقي، وملاحظاتك تشكّل المنتج مباشرة.',
-            'قناة تواصل واحدة واضحة طوال فترة التجربة.',
-            'الأسعار لم تُعلن بعد — المنضمون في التجربة يُبلَّغون بها أولاً قبل أي التزام.',
+            'التسجيل مباشر بالبريد الإلكتروني — بلا موافقات ولا انتظار.',
+            'تبدأ فوراً على عمل مكتبك الحقيقي: عقارات وعقود وتحصيل ومصروفات.',
+            'الاستخدام خلال هذه المرحلة متاح بلا رسوم.',
+            'الأسعار تُعلن لاحقاً — المستخدمون الحاليون يُبلَّغون بها أولاً قبل أي التزام.',
+            'ملاحظاتك تشكّل المنتج مباشرة: راسلنا على info@qaydalaqar.com بأي ملاحظة.',
           ].map((item) => (
             <li class="flex items-start gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 mt-0.5">
@@ -47,10 +48,10 @@ const requestAccessMailto = `mailto:info@qaydalaqar.com?subject=${encodeURICompo
         </ul>
         <div class="text-center">
           <a
-            href={requestAccessMailto}
+            href={signupUrl}
             class="inline-block px-10 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-brand-primary/20 hover:-translate-y-0.5"
           >
-            راسلنا لطلب الانضمام
+            أنشئ حساب مكتبك
           </a>
           <p class="text-text-muted text-sm mt-6">
             لديك حساب؟
