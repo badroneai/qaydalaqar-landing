@@ -6,6 +6,12 @@ import {
   publicResourceArticles,
   type PublicResourceArticle,
 } from '../../content/resources';
+import { findResourceTopic, topicUrl, type ResourceTopic } from '../../content/resource-topics';
+import {
+  findResourceTemplate,
+  templateUrl,
+  type ResourceTemplate,
+} from '../../content/resource-templates';
 
 export function getStaticPaths() {
   return publicResourceArticles.map((article) => ({
@@ -19,9 +25,17 @@ interface Props {
 }
 
 const { article } = Astro.props;
-const related = publicResourceArticles
-  .filter((candidate) => candidate.slug !== article.slug)
-  .slice(0, 3);
+const related = article.relatedSlugs?.length
+  ? article.relatedSlugs
+      .map((slug) => publicResourceArticles.find((candidate) => candidate.slug === slug))
+      .filter((candidate): candidate is PublicResourceArticle => Boolean(candidate))
+  : publicResourceArticles.filter((candidate) => candidate.slug !== article.slug).slice(0, 3);
+const relatedTopics = article.relatedTopicSlugs
+  ?.map((slug) => findResourceTopic(slug))
+  .filter((topic): topic is ResourceTopic => Boolean(topic)) ?? [];
+const relatedTemplates = article.relatedTemplateSlugs
+  ?.map((slug) => findResourceTemplate(slug))
+  .filter((template): template is ResourceTemplate => Boolean(template)) ?? [];
 ---
 
 <BaseLayout
@@ -71,6 +85,44 @@ const related = publicResourceArticles
         <h2 class="text-white font-bold text-xl mb-3">الخلاصة العملية</h2>
         <p class="text-gray-200 leading-relaxed">{article.takeaway}</p>
       </aside>
+
+      {relatedTopics.length > 0 && (
+        <section class="mt-16">
+          <h2 class="text-2xl font-bold text-white mb-6">مسارات تقرأ بعدها</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {relatedTopics.map((topic) => (
+              <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-5">
+                <p class="text-brand-primary text-xs font-semibold mb-3">{topic.eyebrow}</p>
+                <h3 class="text-white font-semibold leading-snug">
+                  <a href={topicUrl(topic)} class="hover:text-brand-primary transition-colors">
+                    {topic.title}
+                  </a>
+                </h3>
+                <p class="mt-3 text-text-muted text-sm leading-relaxed">{topic.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {relatedTemplates.length > 0 && (
+        <section class="mt-16">
+          <h2 class="text-2xl font-bold text-white mb-6">قوالب تساعدك على التطبيق</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {relatedTemplates.map((template) => (
+              <article class="card-hover rounded-2xl bg-[#0f1729] border border-[#1f2937] p-5">
+                <p class="text-brand-primary text-xs font-semibold mb-3">{template.category}</p>
+                <h3 class="text-white font-semibold leading-snug">
+                  <a href={templateUrl(template)} class="hover:text-brand-primary transition-colors">
+                    {template.title}
+                  </a>
+                </h3>
+                <p class="mt-3 text-text-muted text-sm leading-relaxed">{template.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section class="mt-16">
         <h2 class="text-2xl font-bold text-white mb-6">أدلة مرتبطة</h2>
