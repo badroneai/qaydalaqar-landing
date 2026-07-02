@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { articleUrl, publicResourceArticles } from '../content/resources';
 
 export async function GET() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -9,6 +10,7 @@ export async function GET() {
     { url: 'https://qaydalaqar.com/pricing/', priority: '0.8', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/about/', priority: '0.6', changefreq: 'monthly' },
     { url: 'https://qaydalaqar.com/contact/', priority: '0.6', changefreq: 'monthly' },
+    { url: 'https://qaydalaqar.com/resources/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://qaydalaqar.com/blog/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://qaydalaqar.com/privacy/', priority: '0.3', changefreq: 'yearly' },
     { url: 'https://qaydalaqar.com/terms/', priority: '0.3', changefreq: 'yearly' },
@@ -21,7 +23,14 @@ export async function GET() {
     lastmod: post.data.pubDate,
   }));
 
-  const allPages = [...staticPages, ...blogPages];
+  const resourcePages = publicResourceArticles.map((article) => ({
+    url: `https://qaydalaqar.com${articleUrl(article)}`,
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: article.updatedAt,
+  }));
+
+  const allPages = [...staticPages, ...resourcePages, ...blogPages];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
