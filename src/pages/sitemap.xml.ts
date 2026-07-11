@@ -23,7 +23,7 @@ export async function GET() {
   ];
 
   const blogPages = posts.map((post) => ({
-    url: `https://qaydalaqar.com/blog/${post.slug}/`,
+    url: `https://qaydalaqar.com/blog/${post.id}/`,
     priority: '0.8',
     changefreq: 'monthly',
     lastmod: post.data.pubDate,
