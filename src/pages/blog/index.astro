@@ -51,7 +51,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
                   )}
 
                   <h2 class="text-white font-bold text-lg mb-3 leading-snug flex-1">
-                    <a href={`/blog/${post.slug}`} class="hover:text-brand-primary transition-colors">
+                    <a href={`/blog/${post.id}`} class="hover:text-brand-primary transition-colors">
                       {post.data.title}
                     </a>
                   </h2>
@@ -63,7 +63,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
                   <div class="flex items-center justify-between mt-auto pt-4 border-t border-[#1f2937]">
                     <time datetime={post.data.pubDate} class="text-text-muted text-xs">{date}</time>
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={`/blog/${post.id}`}
                       class="text-brand-primary text-sm font-medium hover:underline"
                       aria-label={`اقرأ المقال: ${post.data.title}`}
                     >
