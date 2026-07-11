@@ -7,8 +7,8 @@ const signupUrl = 'https://app.qaydalaqar.com/auth/signup';
 ---
 
 <BaseLayout
-  title="ابدأ مع قيد العقار | إطلاق تجريبي"
-  description="قيد العقار في مرحلة إطلاق تجريبي — أنشئ حساب مكتبك بالبريد الإلكتروني وابدأ مباشرة. الأسعار تُعلن لاحقاً ويُبلَّغ المستخدمون الحاليون بها أولاً."
+  title="التجربة الحالية | قيد العقار"
+  description="التسجيل التجريبي في قيد العقار متاح مباشرة. لا يجري تحصيل رسوم حالياً، وهذا ليس سعر البيع النهائي."
   canonical="/pricing"
 >
 
@@ -16,11 +16,11 @@ const signupUrl = 'https://app.qaydalaqar.com/auth/signup';
   <section class="py-20 md:py-28 text-center">
     <div class="container max-w-2xl">
       <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        ابدأ مع
+        جرّب النسخة الحالية من
         <span class="gradient-text"> قيد العقار</span>
       </h1>
       <p class="text-text-muted text-lg">
-        قيد العقار في مرحلة إطلاق تجريبي — أنشئ حساب مكتبك بالبريد الإلكتروني وابدأ الاستخدام فوراً.
+        التسجيل متاح مباشرة بالبريد الإلكتروني. لا يجري تحصيل رسوم داخل المنتج حالياً، وهذا وضع تجريبي وليس سعر البيع النهائي.
       </p>
     </div>
   </section>
@@ -29,14 +29,14 @@ const signupUrl = 'https://app.qaydalaqar.com/auth/signup';
   <section class="pb-20 md:pb-28">
     <div class="container">
       <div class="max-w-2xl mx-auto p-8 md:p-10 rounded-2xl bg-[#0f1729] border border-brand-primary/30">
-        <h2 class="text-white font-bold text-xl mb-6 text-center">ماذا تعني مرحلة الإطلاق التجريبي؟</h2>
+        <h2 class="text-white font-bold text-xl mb-6 text-center">ماذا تعني المرحلة التأسيسية؟</h2>
         <ul class="space-y-4 text-sm text-gray-300 mb-10">
           {[
-            'التسجيل مباشر بالبريد الإلكتروني — بلا موافقات ولا انتظار.',
-            'تبدأ فوراً على عمل مكتبك الحقيقي: عقارات وعقود وتحصيل ومصروفات.',
-            'الاستخدام خلال هذه المرحلة متاح بلا رسوم.',
-            'الأسعار تُعلن لاحقاً — المستخدمون الحاليون يُبلَّغون بها أولاً قبل أي التزام.',
-            'ملاحظاتك تشكّل المنتج مباشرة: راسلنا على info@qaydalaqar.com بأي ملاحظة.',
+            'التسجيل مباشر بالبريد الإلكتروني ولا يمر عبر بوابة قبول.',
+            'تستخدم النسخة الحالية على عقارات وعقود واستحقاقات فعلية من مكتبك.',
+            'تراجع بنفسك بيانات عقد \u2068PDF\u2069 قبل إنشاء أي سجل.',
+            'لا توجد رسوم محصلة حالياً، وأي تسعير مستقبلي يُعرض قبل أي التزام.',
+            'المنتج ما يزال في مرحلة تأسيسية وقد تتغير خصائصه وشروطه.',
           ].map((item) => (
             <li class="flex items-start gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5CCD9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 mt-0.5">
@@ -51,7 +51,7 @@ const signupUrl = 'https://app.qaydalaqar.com/auth/signup';
             href={signupUrl}
             class="inline-block px-10 py-4 bg-brand-primary hover:bg-brand-dark text-[#0F172D] font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-brand-primary/20 hover:-translate-y-0.5"
           >
-            أنشئ حساب مكتبك
+            جرّب النسخة الحالية
           </a>
           <p class="text-text-muted text-sm mt-6">
             لديك حساب؟
