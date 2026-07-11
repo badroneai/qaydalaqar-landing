@@ -9,7 +9,7 @@ export function GET() {
   const lines = [
     '# قيد العقار',
     '',
-    '> مساحة عمل عربية للمكاتب العقارية في السعودية: رادار يومي، عقود إيجار، تحصيل، دفتر مكتب، تقارير، مستندات وذاكرة تشغيلية.',
+    '> مساحة عمل عربية للمكاتب العقارية في السعودية: رادار يومي، عقود إيجار، تحصيل، دفتر مكتب، تقارير، خطابات رسمية، ملف \u2068PDF\u2069 مصدر للعقد المستورد، وذاكرة تشغيلية.',
     '',
     '## Public Pages',
     `- Home: ${siteOrigin}/`,
@@ -35,6 +35,8 @@ export function GET() {
     '- Public content describes product concepts and operational practices.',
     '- The authenticated app lives on app.qaydalaqar.com and is not a public knowledge source.',
     '- Ejar PDF import means user-reviewed file import, not an automatic platform integration.',
+    '- The current product does not provide automatic Excel import or a standalone commission-management module.',
+    '- Document support currently means generated letters and the source PDF retained with an imported lease, not a general document archive.',
     '',
   ];
 
